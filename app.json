@@ -6,8 +6,8 @@
     "pages/my/my"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#dc0422",
+    "navigationBarTextStyle": "white",
     "navigationBarTitleText": "招商家政服务",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light",

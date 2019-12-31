@@ -1,5 +1,14 @@
 <!--pages/my/my.wxml-->
-<view>
-<image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+<view class="my">
+  <view class="container">
+    <view>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    </view>
+    <view class="userinfo-nickname">
+      <text>龙傲天</text>
+      <text style="margin-left: 23rpx;">19801192631</text>
+      <text class="userinfo-username">{{userInfo.nickName}}</text>
+    </view>
+  </view>
+  <view class="divLine"></view>
 </view>
