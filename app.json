@@ -4,7 +4,9 @@
     "pages/logs/logs",
     "pages/serviceOrder/serviceOrder",
     "pages/my/my",
-    "pages/myDetail/myDetail"
+    "pages/myDetail/myDetail",
+    "pages/logPhone/index",
+    "pages/logWechat/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#dc0422",
