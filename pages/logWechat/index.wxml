@@ -1,0 +1,16 @@
+<view class="logInput">
+<image src="../../images/phone.png" class="acc"></image>
+<input></input>
+</view>
+<view class="logInput bigBox">
+<image src="../../images/acc.png" class="acc"></image>
+<input></input>
+<button class="bon">获取验证码</button>
+<button class="btm_button">登录</button>
+<text>使用微信登录</text>
+<view><image src="../../images/wechat.png" class="wechatImg"></image></view>
+</view>
+<view class="bottomText">
+<text>登录即代表您同意我们的</text>
+<text>《服务协议》</text>
+</view>

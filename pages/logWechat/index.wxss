@@ -1,0 +1,75 @@
+/* pages/logPage/index.wxss */
+.logInput{
+  position: relative;
+  top:250rpx;
+  padding: 0 80rpx;
+}
+.logInput input{
+  box-sizing: border-box;
+  border-radius: 50rpx;
+  border: 1rpx solid #999;
+  height: 90rpx;
+  width: 600rpx;
+  margin-top: 46rpx;
+  padding-left: 100rpx;
+}
+.bigBox{
+  height: 600rpx;
+  text-align: center;
+}
+.logInput text{
+  font-size: 32rpx;
+  color: #999;
+  position: absolute;
+  bottom: 150rpx;
+  left: 33%;
+  right: 33%;
+}
+.acc{
+  position: absolute;
+  top: 25rpx;
+  left: 110rpx;
+  height: 45rpx;
+  width:  45rpx;
+}
+.bon{
+  position: absolute;
+  right: 100rpx;
+  top: 8rpx;
+  height: 80rpx;
+  font-size: 32rpx;
+  color: #999;
+  background: #fff;
+  z-index: 1;
+}
+button::after{
+border: none;
+}
+.btm_button{
+  line-height: 100rpx;
+  margin-top: 100rpx;
+  height: 100rpx;
+  width: 600rpx;
+  border-radius: 50px;
+  background: #E50012;
+  color: #fff;
+}
+.wechatImg{
+  position: absolute;
+  bottom: 50rpx;
+  height: 80rpx;
+  width: 80rpx;
+  left: 45%;
+}
+.bottomText{
+  font-size: 32rpx;
+  color: #999;
+  position: absolute;
+  bottom: 100rpx;
+  padding-left: 10rpx;
+  width: 100%;
+  text-align: center;
+}
+.bottomText text:last-child{
+  color: #E50012;
+}
