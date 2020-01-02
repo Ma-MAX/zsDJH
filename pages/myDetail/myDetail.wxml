@@ -1,23 +1,84 @@
 <!--pages/myDetail/myDetail.wxml-->
 <view class="myDetail">
-  <!-- <view class="select-title"> -->
-  <view class='list-msg' bindtap='bindShowMsg'>
-    <text>{{tihuoWay}}</text>
-    <!-- <image style='height:20rpx;width:20rpx;' src='/images/down.png'></image> -->
+  <view class="weui-flex">
+    <view class="weui-flex__item">
+      <view class="left">
+        <view class="placeholder">
+          <view class='list-msg' bindtap='bindShowMsg'>
+            <text>{{tihuoWay}}</text>
+            <image class="select-img" src='../../images/下拉.png'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="right">
+      <view class="placeholder">
+        <text>总数：68\n</text>
+        <text>总时长：125H</text>
+      </view>
+    </view>
   </view>
-  <view>
-    <text>总数：68\n</text>
-    <text>总时长：125H</text>
+  <view class="page__hd">
+    <view class="weui-form-preview">
+      <view class="page__title">4H冰箱清洁</view>
+      <image class="page-img" src='../../images/组 5.png'></image>
+      <view class="page__desc">
+        <text class="page-label">服务客户：</text>
+        <text class="page-value">王二 150****1234</text>
+      </view>
+      <view class="page__desc">
+        <text class="page-label">服务地址：</text>
+        <text>广东省深圳市南山区</text>
+      </view>
+      <view class="page__desc">
+        <text class="page-label">服务次数：</text>
+        <text>12次（已服务3次）</text>
+      </view>
+      <view class="page__desc">
+        <text class="page-label">预约时间：</text>
+        <text>2019-11-16-18:00-10:00</text>
+      </view>
+      <view class="page__desc">
+        <text class="page-label">服务时间：</text>
+        <text>2019-11-16-18:00-10:00</text>
+      </view>
+      <view class="page__desc">
+        <text class="page-label">服务时长：</text>
+        <text>4H</text>
+      </view>
+    </view>
+    <view class="weui-form-preview">
+      <view class="page__title">4H冰箱清洁</view>
+      <view class="page__desc">
+        <text>服务客户：</text>
+        <text>王二 150****1234</text>
+      </view>
+      <view class="page__desc">
+        <text>服务地址：</text>
+        <text>广东省深圳市南山区</text>
+      </view>
+      <view class="page__desc">
+        <text>服务次数：</text>
+        <text>12次（已服务3次）</text>
+      </view>
+      <view class="page__desc">
+        <text>预约时间：</text>
+        <text>2019-11-16-18:00-10:00</text>
+      </view>
+      <view class="page__desc">
+        <text>服务时间：</text>
+        <text>2019-11-16-18:00-10:00</text>
+      </view>
+      <view class="page__desc">
+        <text>服务时长：</text>
+        <text>4H</text>
+      </view>
+    </view>
   </view>
-  <!-- </view> -->
   <!-- 下拉需要显示的列表 -->
   <view class="select_box" wx:if="{{select}}">
-    <view class="select_one" bindtap="mySelect" data-name="重庆分店">重庆分店</view>
-    <view class="select_one" bindtap="mySelect" data-name="东莞南城分店">东莞南城分店</view>
-    <view class="select_one" bindtap="mySelect" data-name="东莞总店">东莞总店</view>
+    <view class="select_one" bindtap="mySelect" data-name="重庆分店">重庆</view>
+    <view class="select_one" bindtap="mySelect" data-name="东莞南城分店">东莞</view>
+    <view class="select_one" bindtap="mySelect" data-name="东莞总店">东莞</view>
   </view>
-
-<view class="weui-cell__bd">
-  <single-dropdown-select prop-array='{{selectArray}}' bind:select='select' />
-</view>
 </view>
