@@ -1,0 +1,23 @@
+<!--pages/myDetail/myDetail.wxml-->
+<view class="myDetail">
+  <!-- <view class="select-title"> -->
+  <view class='list-msg' bindtap='bindShowMsg'>
+    <text>{{tihuoWay}}</text>
+    <!-- <image style='height:20rpx;width:20rpx;' src='/images/down.png'></image> -->
+  </view>
+  <view>
+    <text>总数：68\n</text>
+    <text>总时长：125H</text>
+  </view>
+  <!-- </view> -->
+  <!-- 下拉需要显示的列表 -->
+  <view class="select_box" wx:if="{{select}}">
+    <view class="select_one" bindtap="mySelect" data-name="重庆分店">重庆分店</view>
+    <view class="select_one" bindtap="mySelect" data-name="东莞南城分店">东莞南城分店</view>
+    <view class="select_one" bindtap="mySelect" data-name="东莞总店">东莞总店</view>
+  </view>
+
+<view class="weui-cell__bd">
+  <single-dropdown-select prop-array='{{selectArray}}' bind:select='select' />
+</view>
+</view>

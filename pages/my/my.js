@@ -66,5 +66,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+/**
+ * 跳转详情
+ */
+  detailTo: function() {
+    wx.navigateTo({
+      url: '../myDetail/myDetail',
+    })
   }
 })

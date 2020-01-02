@@ -1,0 +1,46 @@
+/* pages/myDetail/myDetail.wxss */
+
+.myDetail {
+  background: #f5f5f5;
+}
+
+.list-msg {
+  width: 170rpx;
+  height: 70rpx;
+  background: #fff;
+  padding: 21rpx 90rpx 21rpx 25rpx;
+  border-radius: 35px;
+  display: initial;
+}
+
+.select_box {
+  background-color: #eee;
+  padding: 0 10rpx;
+  width: 93%;
+  position: absolute;
+  top: 130rpx;
+  z-index: 10;
+  overflow: hidden;
+  animation: myfirst 0.5s;
+}
+
+@keyframes myfirst {
+  from {
+    height: 0rpx;
+  }
+
+  to {
+    height: 210rpx;
+  }
+}
+
+.select_one {
+  height: 60rpx;
+  line-height: 60rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.select-title {
+  padding: 29rpx 0 24rpx 25rpx;
+  flex-direction: row;
+}

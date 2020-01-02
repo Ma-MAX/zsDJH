@@ -6,34 +6,93 @@
   align-items: center;
 } */
 
+.my {
+  background: #f5f5f5;
+  padding-bottom: 121rpx;
+}
+
 .userinfo-avatar {
   width: 110rpx;
   height: 110rpx;
-  margin: 20rpx;
+  /* margin: 20rpx; */
   border-radius: 50%;
 }
 
 .userinfo-nickname {
-  position: relative;
-  bottom: 9rpx;
-  left: 23rpx;
   width: 100%;
+  margin-left: 40rpx;
 }
 
-.userinfo-username {
-  margin-top: 20rpx;
+.left {
+  position: absolute;
+}
+
+.right {
+  position: relative;
+  left: 172rpx;
+}
+
+.area {
   display: block;
-  font-weight: 300;
+  margin-top: 34rpx;
+  font-size: 28rpx;
 }
 
 .container {
   flex-direction: row;
-  padding: 50rpx 0 0 90rpx;
+  padding: 102rpx 0 102rpx 24rpx;
 }
 
-.divLine{
- background: #E0E3DA;
- width: 100%;
- height: 5rpx;
- margin-top: 60rpx;
+.divLine {
+  background: #e0e3da;
+  width: 100%;
+  height: 1rpx;
+  /* margin-top: 60rpx; */
+}
+
+.title-container {
+  padding: 46rpx 0 0 23rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.service-list {
+  padding-top: 33rpx;
+}
+.text-list {
+  padding: 40rpx 0 0 23rpx;
+  font-size: 30rpx;
+}
+
+.listLine {
+  background: #e0e3da;
+  width: 100%;
+  height: 3rpx;
+  margin-top: 40rpx;
+}
+
+.today {
+  background: #fff;
+  margin-top: 22rpx;
+  padding: 42rpx 0 75rpx 25rpx;
+}
+
+.today-container {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 46rpx;
+}
+.text-container {
+  font-size: 30rpx;
+
+}
+button {
+  line-height: normal;
+}
+.cancel-button {
+  margin: 75rpx 27rpx 0 21rpx;
+  background: #ffffff;
+  border-radius: 14rpx;
+  padding: 35rpx 0rpx 32rpx 0rpx;
+  font-size: 32rpx;
+  color: #999;
 }

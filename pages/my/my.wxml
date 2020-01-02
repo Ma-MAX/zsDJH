@@ -1,14 +1,53 @@
 <!--pages/my/my.wxml-->
 <view class="my">
-  <view class="container">
-    <view>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+  <view style="background:#ffffff;">
+    <view class="container">
+      <view>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      </view>
+      <view class="userinfo-nickname">
+        <view class="left">
+          <text style="font-size:32rpx">龙傲天</text>
+          <text class="area">广州公司</text>
+        </view>
+        <view class="right">
+          <text style="font-size:32rpx">19801192631</text>
+          <text class="area">广州天河区门店</text>
+        </view>
+      </view>
     </view>
-    <view class="userinfo-nickname">
-      <text>龙傲天</text>
-      <text style="margin-left: 23rpx;">19801192631</text>
-      <text class="userinfo-username">{{userInfo.nickName}}</text>
+    <view class="divLine"></view>
+
+    <view class="title-container">
+      <text>服务项目</text>
+    </view>
+
+    <view class="service-list">
+      <view>
+        <view class="text-list">
+          <text>保洁服务</text>
+        </view>
+        <view class="listLine"></view>
+      </view>
+      <view>
+        <view class="text-list">
+          <text>保洁服务</text>
+        </view>
+        <view class="listLine"></view>
+      </view>
     </view>
   </view>
-  <view class="divLine"></view>
+  <view class="today">
+    <view class="today-container" bindtap="detailTo">
+      <text>今日服务单：5</text>
+    </view>
+    <view class="text-container">
+      <text>总服务单：9</text>
+      <text style="margin-left:120rpx;">服务单：2</text>
+      <text style="margin-left:147rpx;">售后单：1</text>
+    </view>
+  </view>
+  <view class="cancel">
+    <button class="cancel-button">退出登录</button>
+  </view>
 </view>
