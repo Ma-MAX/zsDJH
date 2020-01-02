@@ -30,16 +30,17 @@
         <view class="listLine"></view>
       </view>
       <view>
-        <view class="text-list">
+        <view class="text-list-last">
           <text>保洁服务</text>
         </view>
-        <view class="listLine"></view>
+        <!-- <view class="listLine"></view> -->
       </view>
     </view>
   </view>
   <view class="today">
-    <view class="today-container" bindtap="detailTo">
+    <view class="today-container" hover-class="weui-cell_active" bindtap="detailTo">
       <text>今日服务单：5</text>
+      <image class="today-to" src="../../images/右箭头.png"></image>
     </view>
     <view class="text-container">
       <text>总服务单：9</text>
