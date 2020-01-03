@@ -18,27 +18,26 @@
     "enablePullDownRefresh": false
   },
   "tabBar": {
-    "color": "#000000",
-    "selectedColor": "#1655a0",
-    "borderStyle": "black",
+    "color": "#666666",
+    "selectedColor": "#E60020",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/首页.png",
-        "selectedIconPath": "images/首页.png"
+        "iconPath": "images/首页未选中.png",
+        "selectedIconPath": "images/首页选中.png"
       },
       {
         "pagePath": "pages/serviceOrder/serviceOrder",
         "text": "服务单",
-        "iconPath": "images/order.png",
-        "selectedIconPath": "images/order.png"
+        "iconPath": "images/服务单未选中.png",
+        "selectedIconPath": "images/服务单选中.png"
       },
       {
         "pagePath": "pages/my/my",
         "text": "我的",
-        "iconPath": "images/user.png",
-        "selectedIconPath": "images/user.png"
+        "iconPath": "images/我的未选中.png",
+        "selectedIconPath": "images/我的选中.png"
       }
     ]
   },

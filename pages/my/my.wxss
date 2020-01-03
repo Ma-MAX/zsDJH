@@ -12,8 +12,8 @@
 }
 
 .userinfo-avatar {
-  width: 110rpx;
-  height: 110rpx;
+  width: 113rpx;
+  height: 117rpx;
   /* margin: 20rpx; */
   border-radius: 50%;
 }
@@ -41,12 +41,13 @@
 .container {
   flex-direction: row;
   padding: 102rpx 0 102rpx 24rpx;
+  border-radius: 10rpx;
 }
 
 .divLine {
   background: #e0e3da;
   width: 100%;
-  height: 1rpx;
+  height: 5rpx;
   /* margin-top: 60rpx; */
 }
 
@@ -54,36 +55,51 @@
   padding: 46rpx 0 0 23rpx;
   font-size: 32rpx;
   font-weight: bold;
+  border-radius: 6rpx;
 }
 .service-list {
   padding-top: 33rpx;
+  border-radius: 6rpx;
 }
 .text-list {
   padding: 40rpx 0 0 23rpx;
+  font-size: 30rpx;
+}
+.text-list-last {
+  padding: 40rpx 0 39rpx 23rpx;
   font-size: 30rpx;
 }
 
 .listLine {
   background: #e0e3da;
   width: 100%;
-  height: 3rpx;
+  height: 2rpx;
   margin-top: 40rpx;
+  padding: 0 23rpx;
 }
 
 .today {
   background: #fff;
   margin-top: 22rpx;
-  padding: 42rpx 0 75rpx 25rpx;
+  padding: 19rpx 0 75rpx 0;
+  border-radius: 10rpx;
 }
 
 .today-container {
   font-size: 32rpx;
   font-weight: bold;
-  margin-bottom: 46rpx;
+  margin-bottom: 23rpx;
+  padding: 23rpx 0 23rpx 25rpx;
+}
+
+.today-to {
+  width: 22rpx;
+  height: 22rpx;
+  margin-left: 465rpx;
 }
 .text-container {
   font-size: 30rpx;
-
+  padding-left: 25rpx;
 }
 button {
   line-height: normal;
