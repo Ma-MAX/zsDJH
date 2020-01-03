@@ -6,7 +6,8 @@
     "pages/my/my",
     "pages/myDetail/myDetail",
     "pages/logPhone/index",
-    "pages/logWechat/index"
+    "pages/logWechat/index",
+    "pages/myServiceOrder/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#dc0422",

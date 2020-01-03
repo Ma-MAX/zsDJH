@@ -1,0 +1,12 @@
+<view>
+  <view class="head_list">
+    <view class="list">
+      <view bindtap="activeIndex" data-index="{{index}}" class="list_item {{index===currentIndexList?'active':''}}" wx:for="{{headList}}" wx:key="index">
+        {{headList[index]}}
+      </view>
+    </view>
+  </view>
+  <view class="">
+  
+  </view>
+</view>
