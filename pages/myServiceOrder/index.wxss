@@ -1,89 +1,104 @@
-page{
+page {
   height: 100%;
   width: 100%;
 }
-.list{
-background: #fff;
-white-space: nowrap;
-display: flex;
-padding: 5rapx;
+
+.list {
+  background: #fff;
+  white-space: nowrap;
+  display: flex;
+  padding: 5rapx;
 }
-.list_item{
-flex-grow: 2;
-color: #666666;
-padding:20rpx 30rpx;
-font-size: 30rpx;
-display: inline-block;
+
+.list_item {
+  flex-grow: 2;
+  color: #666;
+  padding: 20rpx 30rpx;
+  font-size: 30rpx;
+  display: inline-block;
 }
-.list_item.active{
-  border-bottom: 5rpx solid #E60020;
+
+.list_item.active {
+  border-bottom: 5rpx solid #e60020;
 }
 
 /*  */
-.backGround{
+
+.backGround {
   height: 100%;
   width: 100%;
   background-color: #f5f5f5;
 }
-.service_box{
+
+.service_box {
   position: relative;
   width: 100%;
   background: #fff;
   border-radius: 10rpx;
-  margin: 40rpx 0 ;
+  margin: 40rpx 0;
 }
-.box_head{
+
+.box_head {
   display: flex;
   height: 120rpx;
   width: 100%;
   padding: 30rpx;
-  align-items:center;
+  align-items: center;
 }
-.box_head text{
+
+.box_head text {
   font-size: 40rpx;
   margin-left: 15rpx;
 }
-.service_list{
+
+.service_list {
   width: 100%;
   height: 200rpx;
   display: flex;
-  align-items:center;
+  align-items: center;
   background: #fff;
   padding: 0 20rpx;
   line-height: 50rpx;
 }
-.text_box{
+
+.text_box {
   display: flex;
 }
-.serviceOder_list{
+
+.serviceOder_list {
   margin-left: 30rpx;
   font-size: 24rpx;
   color: #666;
 }
 
-image{
+image {
   height: 48rpx;
   width: 68rpx;
 }
-.photo{
+
+.photo {
   height: 160rpx;
   width: 160rpx;
 }
+
 /* 取消状态 */
-.cancel_state{
+
+.cancel_state {
   position: absolute;
   right: 30rpx;
   top: 40rpx;
   font-size: 32rapx;
-  color: #E60020;
+  color: #e60020;
 }
-.control{
+
+.control {
   display: none;
 }
 
 /* 按钮样式 */
-.btn{
-height: 60rpx;
+
+.btn {
+  height: 60rpx;
   width: 160rpx;
   border-radius: 10rpx;
   line-height: 60rpx;
@@ -91,18 +106,21 @@ height: 60rpx;
   background: #fff;
   font-size: 32rpx;
 }
-.btn_confirm{
-  color: #E60020;
-  border: 1px solid #E60020;
+
+.btn_confirm {
+  color: #e60020;
+  border: 1px solid #e60020;
   margin-right: 20rpx;
 }
-.btn_cancel{
+
+.btn_cancel {
   color: #ccc;
   border: 1px solid #ccc;
 }
-.btn_box{
+
+.btn_box {
   width: 100%;
   padding: 20rpx;
   display: flex;
-  justify-content:flex-end;
+  justify-content: flex-end;
 }

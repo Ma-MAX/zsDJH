@@ -20,44 +20,63 @@
       </view>
     </view>
   </view>
+  <!-- 客户信息 -->
   <view class="detail_middle">
     <view class="head">
       客户信息
     </view>
     <view class="middle_box">
-      <!--  -->
       <view class="user_fixedData">
         <view wx:for="{{userList}}" wx:key="idex" style="padding-top:5rpx;">
           {{userList[index]}}
         </view>
       </view>
-      <!--  -->
       <view class="user_changeData">
         <view wx:for="{{userData}}" wx:key="idex" style="padding-top:5rpx;">
           {{userData[index]}}
         </view>
       </view>
-      <!--  -->
     </view>
   </view>
+  <!-- 服务信息 -->
   <view class="detail_middle">
     <view class="head">
       服务信息
     </view>
     <view class="middle_box" style="color:#4D4D4D;">
-      <!--  -->
       <view class="user_fixedData">
         <view wx:for="{{serviceList}}" wx:key="idex" style="padding-top:5rpx;">
           {{serviceList[index]}}
         </view>
       </view>
-      <!--  -->
       <view class="user_changeData">
         <view wx:for="{{serviceData}}" wx:key="idex" style="padding-top:5rpx;">
           {{serviceData[index]}}
         </view>
       </view>
-      <!--  -->
     </view>
+  </view>
+  <!-- 取消信息 -->
+  <view class="detail_middle">
+    <view class="head">
+      取消信息
+    </view>
+    <view class="middle_box" style="color:#4D4D4D;">
+      <view class="user_fixedData">
+        <view wx:for="{{serviceList}}" wx:key="idex" style="padding-top:5rpx;">
+          {{serviceList[index]}}
+        </view>
+      </view>
+      <view class="user_changeData">
+        <view wx:for="{{serviceData}}" wx:key="idex" style="padding-top:5rpx;">
+          {{serviceData[index]}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 按钮 -->
+  <view class="btn_box">
+    <view class="btn btn_connect">联系客户</view>
+    <view class="btn btn_service">结束服务</view>
   </view>
 </view>
