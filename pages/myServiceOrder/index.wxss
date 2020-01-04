@@ -63,10 +63,13 @@ page {
 
 .text_box {
   display: flex;
+  flex-grow: 1;
+  border-bottom: #ccc 1px solid;
+  margin-left: 30rpx;
+  padding-bottom: 20rpx;
 }
 
 .serviceOder_list {
-  margin-left: 30rpx;
   font-size: 24rpx;
   color: #666;
 }
@@ -123,4 +126,35 @@ image {
   padding: 20rpx;
   display: flex;
   justify-content: flex-end;
+}
+/*  */
+.pop{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200rpx;
+  background: #fff;
+  display: flex;
+  align-items:center;
+  justify-content: space-around;
+}
+.pop view{
+  height: 60rpx;
+  line-height: 60rpx;
+  width: 240rpx;
+  background: #ccc;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30rpx;
+  opacity: 0.8;
+}
+.shade{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  opacity: 0.5;
 }
