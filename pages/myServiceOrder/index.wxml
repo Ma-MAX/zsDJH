@@ -12,9 +12,8 @@
       {{cancelState}}
     </view>
     <view class="box_head">
-      <image src="../../images/首页选中.png"></image>
       <text>床垫除螨</text>
-<!-- 对接口时请使用变量 -->
+      <!-- 对接口时请使用变量 -->
     </view>
     <view class="service_list">
       <image src="../../images/首页选中.png" class="photo"></image>
@@ -31,15 +30,15 @@
         </view>
       </view>
     </view>
-    <view class="{{btnControl}}">
+    <!-- <view class="{{btnControl}}">
       <view class="btn_confirm btn">修改订单</view>
       <view class="btn_cancel btn">取消订单</view>
-    </view>
+    </view> -->
     <view class="{{butnControl}}">
-      <view class="btn {{buttonStyle}}">取消</view>
+      <view class="btn {{buttonStyle}}">{{buttonText}}</view>
     </view>
   </view>
-  
-<!-- 订单信息共用样式 -->
-<!-- 待接单/待服务的按钮 -->
+
+  <!-- 订单信息共用样式 -->
+  <!-- 待接单/待服务的按钮 -->
 </view>

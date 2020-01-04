@@ -6,30 +6,43 @@ Page({
    */
   data: {
     currentIndexList: 0,
-    headList: ["待接单", "待服务", "服务中", "已完成", "已取消"],
-    serviceList: ["服务次数: ", "服务时长: ", "服务阿姨: ", "服务时间: "],
-    dataList:["6次(服务3)", "4H", "李四", "2019-12-12-8:00-12:00(周一)"],
-    cancelState:"全责取消",
+    headList: [ "待服务", "服务中", "已完成", "已取消"],
+    serviceList: ["服务客户: ", "服务地址: ", "服务时间: "],
+    dataList:["6次(服务3)","李四", "2019-12-12-8:00-12:00(周一)"],
+    cancelState:"已完成",
     // Control 均为控制 view视图
     cancelControl:"cancel_state",
     btnControl:"control",
     butnControl:"btn_box",
-    buttonStyle: "btn_confirm"
+    buttonStyle: "btn_confirm",
+    buttonText:"开始服务"
     // buttonStyle:btn_confirm,btn_cancel
     // cancelControl: cancel_state
     // btnControl,butnControl: btn_box
   },
   activeIndex(e) {
+    let data = this.data;
+    let headList= ["待服务", "服务中", "已完成", "已取消"];
     console.log(e);
     this.setData({
-      currentIndexList: e.target.dataset.index
+      currentIndexList: e.target.dataset.index,
+      cancelState: headList[e.target.dataset.index],
+      butnControl: (e.target.dataset.index < 2) ? "btn_box" : "control",
     })
+    if (data.cancelState !="待服务"){
+      this.setData({
+        buttonText:"结束服务"
+      })
+    }else{
+      this.setData({
+        buttonText: "开始服务"
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
   },
 
   /**
