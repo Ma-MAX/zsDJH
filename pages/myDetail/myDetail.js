@@ -1,4 +1,5 @@
 // pages/myDetail/myDetail.js
+const api = require("../../utils/request.js")
 Page({
 
   /**
@@ -6,14 +7,27 @@ Page({
    */
   data: {
     select: false,
-    tihuoWay: '本月'
+    tihuoWay: '本月',
+    data:[],
+    param:{
+      p: 1,
+      s: 10000,
+      condition: {
+        month: 'CURENT_MONTH',
+        userId: '',
+        openId:''
+      }
+    },
+    api: {
+      finishOrder: '/api/small-program/employ/order/complet-work-order-list'
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    // api.getData(this.data.api.finishOrder,this.data.param, this.successDo, this.failDo);
   },
 
   /**
@@ -71,10 +85,21 @@ Page({
     })
   },
   mySelect(e) {
-    var name = e.currentTarget.dataset.name
+    var name = e.currentTarget.dataset.name;
+    this.data.param.condition.month = e.currentTarget.dataset.value;
     this.setData({
       tihuoWay: name,
       select: false
+    });
+  },
+  successDo: function (data) {
+    var that = this;
+    that.setData({
+      data: data
     })
+  },
+
+  failDo: function (data) {
+    console.log("失败");
   }
 })

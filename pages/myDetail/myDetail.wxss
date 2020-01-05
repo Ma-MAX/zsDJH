@@ -79,7 +79,7 @@
   }
 
   to {
-    height: 160rpx;
+    height: 103rpx;
   }
 }
 
