@@ -1,11 +1,12 @@
 {
   "pages": [
+    "pages/logPhone/index",
     "pages/index/index",
     "pages/logs/logs",
     "pages/serviceOrder/serviceOrder",
     "pages/my/my",
     "pages/myDetail/myDetail",
-    "pages/logPhone/index",
+    
     "pages/logWechat/index",
     "pages/myServiceOrder/index",
     "pages/serviceDetail/index"
