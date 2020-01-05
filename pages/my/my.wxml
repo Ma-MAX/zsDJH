@@ -39,7 +39,7 @@
   </view>
   <view class="today">
     <view class="today-container" hover-class="weui-cell_active" bindtap="detailTo">
-      <text>今日服务单：5</text>
+      <text>今日服务单：{{myData.todayServerCount}}</text>
       <image class="today-to" src="../../images/右箭头.png"></image>
     </view>
     <view class="text-container">
