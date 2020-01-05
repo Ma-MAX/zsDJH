@@ -1,0 +1,50 @@
+<view class="backGround">
+  <view class="head_list">
+    <view class="list">
+      <view bindtap="activeIndex" data-index="{{index}}" class="list_item {{index===currentIndexList?'active':''}}" wx:for="{{headList}}" wx:key="index">
+        {{headList[index]}}
+      </view>
+    </view>
+  </view>
+  <!-- 订单信息共用样式 -->
+  <view class="service_box">
+    <view class="{{cancelControl}}">
+      {{cancelState}}
+    </view>
+    <view class="box_head">
+      <text>床垫除螨</text>
+      <!-- 对接口时请使用变量 -->
+    </view>
+    <view class="service_list">
+      <image src="../../images/首页选中.png" class="photo"></image>
+      <view class="text_box">
+        <view class="serviceOder">
+          <view class="serviceOder_list" wx:for="{{serviceList}}" wx:key="idex">
+            {{serviceList[index]}}
+          </view>
+        </view>
+        <view class="serviceOder" style="margin-left:30rpx;">
+          <view class="serviceOder_list" wx:for="{{dataList}}" wx:key="idex" style="color:#333;">
+            {{dataList[index]}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="{{btnControl}}">
+      <view class="btn_confirm btn">修改订单</view>
+      <view class="btn_cancel btn">取消订单</view>
+    </view> -->
+    <view class="{{butnControl}}">
+      <view class="btn {{buttonStyle}}">{{buttonText}}</view>
+    </view>
+  </view>
+  <view class="control"></view>
+  <!-- shade 遮罩层样式-->
+  <view class="control">
+    <!-- pop 弹出层样式 -->
+    <view>今日服务单()</view>
+    <view>明日服务单</view>
+  </view>
+  <!-- 订单信息共用样式 -->
+  <!-- 待接单/待服务的按钮 -->
+</view>
