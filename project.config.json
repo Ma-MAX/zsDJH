@@ -42,6 +42,12 @@
 			"list": [
 				{
 					"id": 0,
+					"name": "we",
+					"pathName": "pages/logWechat/index",
+					"query": ""
+				},
+				{
+					"id": -1,
 					"name": "服务单",
 					"pathName": "pages/logPhone/index",
 					"query": ""
