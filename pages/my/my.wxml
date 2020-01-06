@@ -43,9 +43,9 @@
       <image class="today-to" src="../../images/右箭头.png"></image>
     </view>
     <view class="text-container">
-      <text>总服务单：9</text>
-      <text style="margin-left:120rpx;">服务单：2</text>
-      <text style="margin-left:147rpx;">售后单：1</text>
+      <text>总服务单：{{myData.totalCount}}</text>
+      <text style="margin-left:120rpx;">服务单：{{myData.serverNormalCount}}</text>
+      <text style="margin-left:147rpx;">售后单：{{myData.refundCount}}</text>
     </view>
   </view>
   <view class="cancel">

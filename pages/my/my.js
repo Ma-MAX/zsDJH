@@ -11,7 +11,7 @@ Page({
     userInfo: {},
     myData: {},
     api: {
-      list: '/api/small-program/employ/order/home-page/work-order'
+      list: '/api/small-program/employ/order/complet-work-order-list-statis'
     }
   },
 
