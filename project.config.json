@@ -49,20 +49,19 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 0,
 			"list": [
 				{
 					"id": 0,
-					"name": "we",
-					"pathName": "pages/logWechat/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "服务单",
-					"pathName": "pages/logPhone/index",
-					"query": ""
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
 				}
 			]
 		}
