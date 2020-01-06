@@ -27,11 +27,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    request(this.data.api.finishOrder, 'post').then(res => {
-      this.setData({
-        data: data
-      })
-    })
+    // request(this.data.api.finishOrder, 'post').then(res => {
+    //   this.setData({
+    //     data: data
+    //   })
+    // })
   },
 
   /**

@@ -22,11 +22,11 @@ Page({
     this.setData({
       userInfo: app.globalData.userInfo
     });
-    request(this.data.api.list).then(res => {
-      this.setData({
-        myData: res.data
-      })
-    })
+    // request(this.data.api.list).then(res => {
+    //   this.setData({
+    //     myData: res.data
+    //   })
+    // })
   },
 
   /**
