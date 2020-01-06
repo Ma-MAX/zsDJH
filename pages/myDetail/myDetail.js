@@ -1,5 +1,5 @@
 // pages/myDetail/myDetail.js
-const api = require("../../utils/request.js")
+import request from "../../utils/fetch.js"
 Page({
 
   /**
@@ -8,14 +8,14 @@ Page({
   data: {
     select: false,
     tihuoWay: '本月',
-    data:[],
-    param:{
+    data: [],
+    param: {
       p: 1,
       s: 10000,
       condition: {
         month: 'CURENT_MONTH',
         userId: '',
-        openId:''
+        openId: ''
       }
     },
     api: {
@@ -27,7 +27,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // api.getData(this.data.api.finishOrder,this.data.param, this.successDo, this.failDo);
+    request(this.data.api.finishOrder, 'post').then(res => {
+      this.setData({
+        data: data
+      })
+    })
   },
 
   /**
@@ -91,15 +95,5 @@ Page({
       tihuoWay: name,
       select: false
     });
-  },
-  successDo: function (data) {
-    var that = this;
-    that.setData({
-      data: data
-    })
-  },
-
-  failDo: function (data) {
-    console.log("失败");
   }
 })

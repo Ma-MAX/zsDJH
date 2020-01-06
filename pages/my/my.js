@@ -1,7 +1,7 @@
 // pages/my/my.js
-//获取应用实例
+//获取应用实例 
+import request from "../../utils/fetch.js"
 const app = getApp()
-const api = require("../../utils/request.js")
 Page({
 
   /**
@@ -22,7 +22,11 @@ Page({
     this.setData({
       userInfo: app.globalData.userInfo
     });
-    // api.getData(this.data.api.list,this.successDo,this.failDo);
+    request(this.data.api.list).then(res => {
+      this.setData({
+        myData: res.data
+      })
+    })
   },
 
   /**
@@ -80,16 +84,5 @@ Page({
     wx.navigateTo({
       url: '../myDetail/myDetail',
     })
-  },
-
-  successDo: function(data) {
-    var that = this;
-    that.setData({
-      myData: data
-    })
-  },
-
-  failDo: function(data) {
-    console.log("失败");
   }
 })
