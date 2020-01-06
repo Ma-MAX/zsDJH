@@ -1,11 +1,28 @@
 // pages/logWechat/index.js
+import fetch from '../../utils/fetch.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    loginName: '',
+    verificationCode: '',
+    codeLoading: false,
+    iscode: false,
+    loginLoading: false,
+    islogin: false,
+  },
 
+  getcode() {
+    
+    const url = `/api/auth/verification-code`
+    fetch(url).then(res => {
+      console.log(res)
+      this.setData({
+        verificationCode: res.message
+      });
+    })
   },
 
   /**

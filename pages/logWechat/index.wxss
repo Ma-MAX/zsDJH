@@ -1,10 +1,33 @@
 /* pages/logPage/index.wxss */
-.logInput{
-  position: relative;
-  top:250rpx;
+.logInput {
+  margin-top: 200rpx;
   padding: 0 80rpx;
 }
-.logInput input{
+
+.logInput .inputBox {
+  position: relative;
+}
+
+.logInput .inputBox .acc {
+  position: absolute;
+  top: 25rpx;
+  left: 30rpx;
+  height: 45rpx;
+  width: 45rpx;
+}
+
+.logInput .inputBox .bon {
+  position: absolute;
+  right: 12rpx;
+  top: 5rpx;
+  height: 78rpx;
+  font-size: 32rpx;
+  color: #53ccfa;
+  background: #fff;
+  z-index: 1;
+}
+
+.logInput .inputBox input {
   box-sizing: border-box;
   border-radius: 50rpx;
   border: 1rpx solid #999;
@@ -13,62 +36,45 @@
   margin-top: 46rpx;
   padding-left: 100rpx;
 }
-.bigBox{
-  height: 600rpx;
-  text-align: center;
-}
-.logInput text{
-  font-size: 32rpx;
-  color: #999;
-  position: absolute;
-  bottom: 150rpx;
-  left: 33%;
-  right: 33%;
-}
-.acc{
-  position: absolute;
-  top: 25rpx;
-  left: 110rpx;
-  height: 45rpx;
-  width:  45rpx;
-}
-.bon{
-  position: absolute;
-  right: 100rpx;
-  top: 8rpx;
-  height: 80rpx;
-  font-size: 32rpx;
-  color: #999;
-  background: #fff;
-  z-index: 1;
-}
-button::after{
-border: none;
-}
-.btm_button{
+
+.logInput .btm_button {
   line-height: 100rpx;
-  margin-top: 100rpx;
+  margin-top: 80rpx;
   height: 100rpx;
   width: 600rpx;
   border-radius: 50px;
   background: #E50012;
   color: #fff;
 }
-.wechatImg{
-  position: absolute;
-  bottom: 50rpx;
-  height: 80rpx;
-  width: 80rpx;
-  left: 45%;
+
+.bigBox {
+  margin-top: 100rpx;
+  height: 400rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bigBox text {
+  font-size: 32rpx;
+  color: #999;
+ 
+}
+
+
+button::after {
+  border: none;
+}
+
+
+.bigBox .wechatImg{
+  width: 100rpx;
+  height: 100rpx;
 }
 .bottomText{
   font-size: 32rpx;
   color: #999;
-  position: absolute;
-  bottom: 100rpx;
-  padding-left: 10rpx;
-  width: 100%;
-  text-align: center;
 }
 .bottomText text:last-child{
   color: #E50012;
