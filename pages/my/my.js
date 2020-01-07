@@ -23,6 +23,7 @@ Page({
       userInfo: app.globalData.userInfo
     });
     let token = wx.getStorage('token');
+    console.log(token);
     request.getRes(this.data.api.list,token).then(res => {
       this.setData({
         myData: res.data
