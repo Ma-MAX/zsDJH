@@ -46,7 +46,6 @@ function postRes(url, data) {
             key: 'token',
             data: res.data.data
           })
-          console.log(wx.getStorageSync('token'));
         }
         resolve(res)
       },

@@ -24,7 +24,7 @@ Page({
     });
     request.postRes(this.data.api.list).then(res => {
       this.setData({
-        myData: res.data
+        myData: res.data.data
       })
     })
   },
