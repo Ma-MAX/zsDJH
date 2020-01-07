@@ -30,7 +30,7 @@ Page({
     this.data.iscode = true
     const url = `/api/auth/verification-code?mobile=${this.data.loginName}`
    
-    fetch(url).then(res => {
+    fetch.getRes(url).then(res => {
       this.data.codeLoading = false
       this.data.iscode = false
       if(res.data.code == 200){
@@ -52,7 +52,7 @@ Page({
    
     const url = `/api/auth/login`
     console.log(data);
-    fetch(url,data,'post').then(res => {
+    fetch.postRes(url,data).then(res => {
       if(res.data.code == 200){
         wx.setStorage({
           key:"token",
