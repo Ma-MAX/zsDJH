@@ -54,11 +54,6 @@ Page({
     console.log(data);
     fetch.postRes(url,data).then(res => {
       if(res.data.code == 200){
-        wx.setStorage({
-          key:"token",
-          data:res.data.data
-        })
-        console.log(66)
         wx.switchTab({
           url: '../text/index',
         })
