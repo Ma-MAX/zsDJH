@@ -1,14 +1,14 @@
 <view class="logInput">
 	<view class="inputBox">
 		<image src="../../images/phone.png" class="acc"></image>
-		<input name='loginName' placeholder='请输入用户名'></input>
+		<input name='loginName' bindinput="nameInput" placeholder='请输入用户名'></input>
 	</view>
 	<view class="inputBox">
 		<image src="../../images/acc.png" class="acc"></image>
-		<input name='verificationCode' value='{{verificationCode}}' placeholder='请输入验证码'></input>
-		<button disabled="{{iscode}}" loading='{{codeLoading}}' class="bon">获取验证码</button>
+		<input name='verificationCode' bindinput="codeInput" value='{{verificationCode}}' placeholder='请输入验证码'></input>
+		<button bindtap="getcode" disabled="{{iscode}}" loading='{{codeLoading}}' class="bon">{{btntext}}</button>
+    <button bindtap="login" disabled="{{islogin}}" loading='{{loginLoading}}' class="btm_button">登录</button>
 	</view>
-	<button  disabled="{{islogin}}" loading='{{loginLoading}}' class="btm_button">登录</button>
 </view>
 <view class="bigBox">
 	<text>使用微信登录</text>
