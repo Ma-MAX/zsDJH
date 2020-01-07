@@ -1,16 +1,13 @@
 {
   "pages": [
     "pages/logWechat/index",
-   
+    "pages/homePage/index",
     "pages/index/index",
-    "pages/serviceOrder/serviceOrder",
+    "pages/serviceTicket/index",
+    "pages/achieve/index",
     "pages/my/my",
-    "pages/myDetail/myDetail",
+    "pages/myDetail/myDetail"
 
-    "pages/myServiceOrder/index",
-    "pages/serviceDetail/index",
-    "pages/tomorrowService/index",
-    "pages/text/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#dc0422",
@@ -25,13 +22,13 @@
     "selectedColor": "#E60020",
     "list": [
       {
-        "pagePath": "pages/text/index",
+        "pagePath": "pages/homePage/index",
         "text": "首页",
         "iconPath": "images/首页未选中.png",
         "selectedIconPath": "images/首页选中.png"
       },
       {
-        "pagePath": "pages/myServiceOrder/index",
+        "pagePath": "pages/serviceTicket/index",
         "text": "服务单",
         "iconPath": "images/服务单未选中.png",
         "selectedIconPath": "images/服务单选中.png"

@@ -55,7 +55,7 @@ Page({
     fetch.postRes(url,data).then(res => {
       if(res.data.code == 200){
         wx.switchTab({
-          url: '../text/index',
+          url: '../homePage/index',
         })
       }
     })

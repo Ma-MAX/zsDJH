@@ -1,10 +1,19 @@
 // pages/myServiceOrder/index.js
+import fetch from '../../utils/fetch.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    isday: true,
+    listData: {
+      p:1,
+      s:1000,
+      condition: {
+        status: 'WAIT_SERVER',
+      }
+    },
     currentIndexList: 0,
     headList: [ "待服务", "服务中", "已完成", "已取消"],
     serviceList: ["服务客户: ", "服务地址: ", "服务时间: "],
@@ -39,6 +48,27 @@ Page({
       })
     }
   },
+  getOred() {
+    const url = `/api/order/small-program/employ/today-work-order-list`
+    fetch.postRes(url,this.data.listData).then(res => {
+      if(res.data == 200) {
+        console.log(res.data);
+        
+      }
+    })
+  },
+  today() {
+    
+    this.setData({
+      isday: true
+    })
+  },
+  tomorrow() {
+    
+    this.setData({
+      isday: false
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -49,7 +79,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    this.getOred()
   },
 
   /**
