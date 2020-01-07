@@ -8,7 +8,9 @@
     "pages/logPhone/index",
     "pages/logWechat/index",
     "pages/myServiceOrder/index",
-    "pages/serviceDetail/index"
+    "pages/serviceDetail/index",
+    "pages/tomorrowService/index",
+    "pages/text/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#dc0422",
