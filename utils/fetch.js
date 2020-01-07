@@ -5,7 +5,11 @@ export default fetch = (url, data, method="GET") => {
     wx.request({
       url: `${BACS_URl}${url}`,
       data,     
-      method,     
+      method,
+      header: {
+        'content-type': 'application/json',
+        'Authorization': wx.getStorage('token')
+      },     
       success: res => {
         resolve(res)
       },
