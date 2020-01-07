@@ -11,7 +11,7 @@ Page({
     userInfo: {},
     myData: {},
     api: {
-      list: '/api/order/small-program/employ/complet-work-order-list'
+      list: '/api/order/small-program/employ/complet-work-order-list-statis'
     }
   },
 
@@ -22,8 +22,7 @@ Page({
     this.setData({
       userInfo: app.globalData.userInfo
     });
-    let token = wx.getStorage('token');
-    request.getRes(this.data.api.list,token).then(res => {
+    request.postRes(this.data.api.list).then(res => {
       this.setData({
         myData: res.data
       })
