@@ -58,8 +58,9 @@ Page({
           key:"token",
           data:res.data.data
         })
+        console.log(66)
         wx.switchTab({
-          url: '../index/index',
+          url: '../text/index',
         })
       }
     })

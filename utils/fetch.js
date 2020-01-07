@@ -4,7 +4,6 @@ function getRes(url, token) {
   return new Promise((resolve,reject) => {
     wx.request({
       url: `${BACS_URl}${url}`,
-      data,     
       method: 'GET',
       header: {
         'content-type': 'application/json',

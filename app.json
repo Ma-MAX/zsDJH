@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/logWechat/index",
-    "pages/logPhone/index",
+   
     "pages/index/index",
     "pages/serviceOrder/serviceOrder",
     "pages/my/my",
@@ -25,13 +25,13 @@
     "selectedColor": "#E60020",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/text/index",
         "text": "首页",
         "iconPath": "images/首页未选中.png",
         "selectedIconPath": "images/首页选中.png"
       },
       {
-        "pagePath": "pages/serviceOrder/serviceOrder",
+        "pagePath": "pages/myServiceOrder/index",
         "text": "服务单",
         "iconPath": "images/服务单未选中.png",
         "selectedIconPath": "images/服务单选中.png"
