@@ -1,0 +1,25 @@
+<view class="big_box">
+  <view class="detail_box" wx:for="{{headList}}" wx:key="index">
+    <view class="detail_head">
+      <text>空调清洁</text>
+    </view>
+    <view class="cancel_state">
+      已完成
+    </view>
+    <view class="detail_top">
+      <view>
+        <image src="../../images/首页选中.png" class="detail_img2"></image>
+      </view>
+      <view class="top_fixedData">
+        <view>服务客户:</view>
+        <view>服务地址:</view>
+        <view>服务时间:</view>
+      </view>
+      <view class="top_changeData">
+        <view>李四 1*********</view>
+        <view>南山区深南花园A栋703</view>
+        <view>2019-11-6-16:00-10:00</view>
+      </view>
+    </view>
+  </view>
+</view>

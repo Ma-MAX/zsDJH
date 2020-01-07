@@ -8,7 +8,7 @@ Page({
   data: {
     select: false,
     tihuoWay: '本月',
-    data: [],
+    detail: [],
     param: {
       p: 1,
       s: 10000,
@@ -19,7 +19,7 @@ Page({
       }
     },
     api: {
-      finishOrder: '/api/small-program/employ/order/complet-work-order-list'
+      finishOrder: '/api/order/small-program/employ/complet-work-order-list-statis'
     }
   },
 
@@ -27,11 +27,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // request(this.data.api.finishOrder, 'post').then(res => {
-    //   this.setData({
-    //     data: data
-    //   })
-    // })
+    request(this.data.api.finishOrder, 'post').then(res => {
+      this.setData({
+        detail: res.data
+      })
+    })
   },
 
   /**

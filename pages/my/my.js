@@ -11,7 +11,7 @@ Page({
     userInfo: {},
     myData: {},
     api: {
-      list: '/api/small-program/employ/order/complet-work-order-list-statis'
+      list: '/api/order/small-program/employ/complet-work-order-list'
     }
   },
 
@@ -22,11 +22,11 @@ Page({
     this.setData({
       userInfo: app.globalData.userInfo
     });
-    // request(this.data.api.list).then(res => {
-    //   this.setData({
-    //     myData: res.data
-    //   })
-    // })
+    request(this.data.api.list).then(res => {
+      this.setData({
+        myData: res.data
+      })
+    })
   },
 
   /**
