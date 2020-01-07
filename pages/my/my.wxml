@@ -39,13 +39,13 @@
   </view>
   <view class="today">
     <view class="today-container" hover-class="weui-cell_active" bindtap="detailTo">
-      <text>今日服务单：5</text>
+      <text>已完成服务单</text>
       <image class="today-to" src="../../images/右箭头.png"></image>
     </view>
     <view class="text-container">
-      <text>总服务单：9</text>
-      <text style="margin-left:120rpx;">服务单：2</text>
-      <text style="margin-left:147rpx;">售后单：1</text>
+      <text>总服务单：{{myData.totalCount}}</text>
+      <text style="margin-left:120rpx;">服务单：{{myData.serverNormalCount}}</text>
+      <text style="margin-left:147rpx;">售后单：{{myData.refundCount}}</text>
     </view>
   </view>
   <view class="cancel">

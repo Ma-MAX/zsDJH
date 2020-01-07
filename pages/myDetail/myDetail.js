@@ -1,4 +1,5 @@
 // pages/myDetail/myDetail.js
+import request from "../../utils/fetch.js"
 Page({
 
   /**
@@ -6,14 +7,31 @@ Page({
    */
   data: {
     select: false,
-    tihuoWay: '本月'
+    tihuoWay: '本月',
+    detail: [],
+    param: {
+      p: 1,
+      s: 10000,
+      condition: {
+        month: 'CURENT_MONTH',
+        userId: '',
+        openId: ''
+      }
+    },
+    api: {
+      finishOrder: '/api/order/small-program/employ/complet-work-order-list-statis'
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    request(this.data.api.finishOrder, 'post').then(res => {
+      this.setData({
+        detail: res.data
+      })
+    })
   },
 
   /**
@@ -71,10 +89,11 @@ Page({
     })
   },
   mySelect(e) {
-    var name = e.currentTarget.dataset.name
+    var name = e.currentTarget.dataset.name;
+    this.data.param.condition.month = e.currentTarget.dataset.value;
     this.setData({
       tihuoWay: name,
       select: false
-    })
+    });
   }
 })
