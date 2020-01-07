@@ -44,8 +44,8 @@
     </view>
     <view class="text-container">
       <text>总服务单：{{myData.totalCount}}</text>
-      <text style="margin-left:120rpx;">服务单：{{myData.serverNormalCount}}</text>
-      <text style="margin-left:147rpx;">售后单：{{myData.refundCount}}</text>
+      <text style="margin-left:92rpx;">服务单：{{myData.serverNormalCount}}</text>
+      <text style="margin-left:92rpx;">售后单：{{myData.refundCount}}</text>
     </view>
   </view>
   <view class="cancel">
