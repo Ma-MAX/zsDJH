@@ -27,7 +27,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    request(this.data.api.finishOrder, 'post').then(res => {
+    let token = wx.getStorage('token');
+    request.postRes(this.data.api.finishOrder, this.data.param,token).then(res => {
       this.setData({
         detail: res.data
       })
