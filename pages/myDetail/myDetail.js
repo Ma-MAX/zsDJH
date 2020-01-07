@@ -19,7 +19,7 @@ Page({
       }
     },
     api: {
-      finishOrder: '/api/order/small-program/employ/complet-work-order-list-statis'
+      finishOrder: '/api/order/small-program/employ/complet-work-order-list'
     }
   },
 
@@ -27,11 +27,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let token = wx.getStorage('token');
-    request.postRes(this.data.api.finishOrder, this.data.param,token).then(res => {
+    request.postRes(this.data.api.finishOrder, this.data.param).then(res => {
       this.setData({
         detail: res.data
       })
+      console.log(res.data);
     })
   },
 
