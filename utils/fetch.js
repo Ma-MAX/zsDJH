@@ -9,9 +9,8 @@ var logInUrl = "/api/auth/login";
 function getRes(url, data) {
   return new Promise((resolve, reject) => {
     wx.request({
-      url: `${BACS_URl}${url}`,
+      url: `${BACS_URl}${url}${data}`,
       method: 'GET',
-      data: data,
       header: {
         'content-type': 'application/json',
         'Authorization': wx.getStorageSync(tokenKey)
