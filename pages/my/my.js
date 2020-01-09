@@ -14,7 +14,7 @@ Page({
     api: {
       list: '/api/order/small-program/employ/complet-work-order-list-statis',
       info: '/api/upms/mini-program/get-info',
-      imgUrl: '/api/dfs/get/base64'
+      imgUrl: '/api/dfs/get/base64/'
     }
   },
 
@@ -26,7 +26,7 @@ Page({
       this.setData({
         infoData: res.data.data
       });
-      request.getRes(this.data.api.imgUrl,res.data.avatar).then(x => {
+      request.getRes(this.data.api.imgUrl+res.data.avatar).then(x => {
         this.setData({
           userInfo: `data: image/png;base64,${x.data}`
         });
