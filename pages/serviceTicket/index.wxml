@@ -44,6 +44,7 @@
       <view class="btn {{buttonStyle}}">{{buttonText}}</view>
     </view>
   </view>
+  <button bindtap="aaaa">测试</button>
   <view class="control"></view>
   <!-- shade 遮罩层样式-->
   <view class="control">

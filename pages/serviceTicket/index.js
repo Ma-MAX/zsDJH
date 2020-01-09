@@ -42,6 +42,7 @@ Page({
       this.setData({
         buttonText:"结束服务"
       })
+      
     }else{
       this.setData({
         buttonText: "开始服务"
@@ -68,6 +69,21 @@ Page({
     this.setData({
       isday: false
     })
+  },
+
+  aaaa() {
+    wx.getLocation({
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success (res) {
+        const latitude = 113.305918
+        const longitude = 22.813364
+        wx.openLocation({
+          latitude,
+          longitude,
+          scale: 18
+        })
+      }
+     })
   },
   /**
    * 生命周期函数--监听页面加载
