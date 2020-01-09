@@ -8,10 +8,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {},
+    userInfo: '',
     myData: {},
+    infoData:{},
     api: {
-      list: '/api/order/small-program/employ/complet-work-order-list-statis'
+      list: '/api/order/small-program/employ/complet-work-order-list-statis',
+      info: '/api/upms/mini-program/get-info',
+      imgUrl: '/api/dfs/get/base64'
     }
   },
 
@@ -19,8 +22,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-      userInfo: app.globalData.userInfo
+    request.getRes(this.data.api.info).then(res => {
+      this.setData({
+        infoData: res.data.data
+      });
+      request.getRes(this.data.api.imgUrl,res.data.avatar).then(x => {
+        this.setData({
+          userInfo: `data: image/png;base64,${x.data}`
+        });
+      })
     });
     request.postRes(this.data.api.list).then(res => {
       this.setData({
