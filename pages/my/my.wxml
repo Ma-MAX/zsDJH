@@ -8,11 +8,11 @@
       <view class="userinfo-nickname">
         <view class="left">
           <text style="font-size:32rpx">{{infoData.name}}</text>
-          <text class="area">{{infoData.companyName}}</text>
+          <text class="area" wx:for="{{infoData.orgList}}">{{item.companyName}}</text>
         </view>
         <view class="right">
           <text style="font-size:32rpx">{{infoData.mobile}}</text>
-          <text class="area">广州天河区门店</text>
+          <text class="area" wx:for="{{infoData.orgList}}">{{item.storeName}}</text>
         </view>
       </view>
     </view>
@@ -23,11 +23,13 @@
     </view>
 
     <view class="service-list">
-      <view wx:for="{{infoData.serviceItemList}}">
+      <view wx:for="{{serviceData}}">
         <view class="text-list">
-          <text>{{item.serviceName}}</text>
+          <text>{{item.serverTypeName}}</text>
+          <text class="text-right">{{item.serverProjectName}}</text>
         </view>
-        <view wx:if="{{index < infoData.serviceItemList.length-1}}" class="listLine"></view>
+        <view wx:if="{{index < serviceData.length-1}}" class="listLine"></view>
+        <view wx:else class="listLine" style="background:none;"></view>
       </view>
     </view>
   </view>

@@ -11,9 +11,11 @@ Page({
     userInfo: '',
     myData: {},
     infoData:{},
+    serviceData:[],
     api: {
       list: '/api/order/small-program/employ/complet-work-order-list-statis',
       info: '/api/upms/mini-program/get-info',
+      service:'/api/order/server-employee/mini-program/list',
       imgUrl: '/api/dfs/get/base64/'
     }
   },
@@ -32,6 +34,11 @@ Page({
         });
       })
     });
+    request.getRes(this.data.api.service).then(res => {
+      this.setData({
+        serviceData:res.data.data
+      })
+    })
     request.postRes(this.data.api.list).then(res => {
       this.setData({
         myData: res.data.data

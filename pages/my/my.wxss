@@ -57,17 +57,20 @@
   font-weight: bold;
   border-radius: 6rpx;
 }
+
 .service-list {
   padding-top: 33rpx;
   border-radius: 6rpx;
 }
+
 .text-list {
   padding: 40rpx 0 0 23rpx;
   font-size: 30rpx;
 }
-.text-list-last {
-  padding: 40rpx 0 39rpx 23rpx;
-  font-size: 30rpx;
+
+.text-right {
+  float: right;
+  margin-right: 49rpx;
 }
 
 .listLine {
@@ -97,16 +100,19 @@
   height: 22rpx;
   margin-left: 465rpx;
 }
+
 .text-container {
   font-size: 30rpx;
   padding-left: 25rpx;
 }
+
 button {
   line-height: normal;
 }
+
 .cancel-button {
   margin: 75rpx 27rpx 0 21rpx;
-  background: #ffffff;
+  background: #fff;
   border-radius: 14rpx;
   padding: 35rpx 0rpx 32rpx 0rpx;
   font-size: 32rpx;
