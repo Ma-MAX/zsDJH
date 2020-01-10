@@ -16,7 +16,7 @@
         </view>
       </view>
     </view>
-    <view class="divLine"></view>
+    <view class="divLine" style="margin-top:{{(infoData.orgList.length-1) * 72+'rpx'}}"></view>
 
     <view class="title-container">
       <text>服务项目</text>
