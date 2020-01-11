@@ -13,13 +13,13 @@
     </view>
     <view class="right">
       <view class="placeholder">
-        <text>总数：{{data.totalCount}}\n</text>
-        <text>总时长：{{data.totalHour}}H</text>
+        <text>总数：{{title.totalCount}}\n</text>
+        <text>总时长：{{title.totalHour}}H</text>
       </view>
     </view>
   </view>
   <view class="page__hd">
-    <view class="weui-form-preview" wx:for="{{data.employCompletMyWorkOrderServerDetailResultVOList}}">
+    <view class="weui-form-preview" wx:for="{{detail}}">
       <view class="page__title">{{item.serverName}}</view>
       <image class="page-img" src='../../images/组 5.png'></image>
       <view class="page__desc">

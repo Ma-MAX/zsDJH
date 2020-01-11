@@ -9,17 +9,17 @@ Page({
     select: false,
     tihuoWay: '本月',
     detail: [],
+    title: [],
     param: {
       p: 1,
       s: 10000,
       condition: {
-        month: 'CURENT_MONTH',
-        userId: '',
-        openId: ''
+        monthValue: 'CURENT_MONTH'
       }
     },
     api: {
-      finishOrder: '/api/order/small-program/employ/complet-work-order-list'
+      finishOrder: '/api/order/small-program/employ/complet-work-order-list/curnnet',
+      titleInfo: '/api/order/small-program/employ/complet-work-order-list-statis/curnnet'
     }
   },
 
@@ -29,10 +29,15 @@ Page({
   onLoad: function(options) {
     request.postRes(this.data.api.finishOrder, this.data.param).then(res => {
       this.setData({
-        detail: res.data
+        detail: res.data.data
       })
       console.log(res.data);
     })
+    request.postRes(this.data.api.titleInfo, this.data.param.condition).then(res => {
+      this.setData({
+        title: res.data.data
+      })
+    });
   },
 
   /**
@@ -95,6 +100,17 @@ Page({
     this.setData({
       tihuoWay: name,
       select: false
+    });
+    request.postRes(this.data.api.finishOrder, this.data.param).then(res => {
+      this.setData({
+        detail: res.data.data
+      })
+      console.log(res.data);
+    })
+    request.postRes(this.data.api.titleInfo, this.data.param.condition).then(res => {
+      this.setData({
+        title: res.data.data
+      })
     });
   }
 })
