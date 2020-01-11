@@ -76,6 +76,12 @@
 					"pathName": "pages/serviceTicket/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的详情",
+					"pathName": "pages/myDetail/myDetail",
+					"scene": null
 				}
 			]
 		}

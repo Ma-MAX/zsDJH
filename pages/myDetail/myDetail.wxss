@@ -5,12 +5,12 @@
 }
 
 .left .placeholder {
-  padding: 50rpx 0 4rpx 50rpx;
+  padding: 42rpx 0 0 24rpx;
   font-size: 30rpx;
 }
 
 .right {
-  padding: 29rpx 28rpx 4rpx 0;
+  padding: 41rpx 26rpx 21rpx 0;
   font-size: 28rpx;
 }
 
@@ -39,6 +39,14 @@
   font-size: 32rpx;
   font-weight: bold;
   padding: 41rpx 0 40rpx 25rpx;
+}
+
+.status {
+  float: right;
+  margin-right: 32rpx;
+  font-size: 28rpx;
+  color: #e60020;
+  font-weight: normal;
 }
 
 .page__desc {
