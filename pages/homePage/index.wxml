@@ -21,7 +21,6 @@
 					<view class='item-days'>
 						<text>{{item.day>0?(item.daytext?item.daytext:item.day):''}}</text>
 						<text class='amount' wx:if='{{item.day>0}}'>{{item.amount}}</text>
-
 					</view>
 				</view>
 			</view>
