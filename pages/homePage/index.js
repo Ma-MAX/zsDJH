@@ -46,7 +46,20 @@ Page({
   /**创建日历数据 */
   createDateListData: function(setYear, setMonth) {
     //全部时间的月份都是按0~11基准，显示月份才+1
-
+    let datas = [
+      {
+        'date': '2020-01-13',
+        'state': 1
+      },
+      {
+        'date': '2020-01-14',
+        'state': 2
+      },
+      {
+        'date': '2020-01-15',
+        'state': 3
+      }
+    ];
     let dateArr = []; //需要遍历的日历数组数据
     let arrLen = 0; //dateArr的数组长度
     let now = setYear ? new Date(setYear, setMonth) : new Date();
@@ -83,17 +96,33 @@ Page({
       else
         clazz = '' + clazz
       /**如果当前日期已经选中，则变色 */
-      var date = year + "-" + nextMonth + "-" + j;
+      var date = year + "-" + (nextMonth < 10 ? ('0' + nextMonth) : nextMonth) + "-" + (j < 10 ? ('0' + j) : j);
       var index = this.checkItemExist(this.data.checkDate, date);
       if (index != -1) {
         clazz = clazz + ' active';
-      } 
-      dateArr.push({
+      }
+
+      console.log('----', date);
+      let d = datas.filter(x => x.date == date);
+      if (d.length > 0) {
+        d = d[0];
+      } else {
+        d = {};
+      }
+      let da = {
         day: j,
         class: clazz,
         bgc: '',
-        amount:'班'
-      })
+        amount: ''
+      };
+      if (d.state == 1) {
+        da.amount = '班';
+      } else if (d.state == 2) {
+        da.amount = '休';
+      } else if (d.state == 3) {
+        da.amount = '假';
+      }
+      dateArr.push(da)
     }
     this.setData({
       days: dateArr
