@@ -13,8 +13,8 @@
 		</view>
 	</view>
 	<!-- 订单信息共用样式 -->
- 
-	<block wx:for="{{serOderData}}" wx:key="{{item.id}}">
+  <!-- <navigator url="../canceled/index"> qu</navigator> -->
+	<block wx:for="{{serOderData}}" wx:key="id">
 	 <view class="serOredBox" data-id="{{item.id}}" bindtap="gotoInfo">
     <view class="title">
 			<text class="text">{{item.serverName}}</text>

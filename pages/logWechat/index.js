@@ -25,10 +25,7 @@ Page({
       verificationCode: e.detail.value
     })
   },
-  getCountDown(){ //验证码一分钟倒计时
-    var time = parseInt(this.time);
-    
-},
+
   getcode(e) {
     this.setData({
       codeLoading: true,

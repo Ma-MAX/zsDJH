@@ -95,8 +95,7 @@ Page({
       id: options.id,
       isBtn: options.isBtn
     })
-    const eventChannel = this.getOpenerEventChannel()
-    eventChannel.emit('acceptDataFromOpenedPage')
+    
   },
 
   /**

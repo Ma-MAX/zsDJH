@@ -68,8 +68,7 @@ Page({
     this.setData({
       id: options.id
     })
-    const eventChannel = this.getOpenerEventChannel()
-    eventChannel.emit('acceptDataFromOpenedPage')
+   
   },
 
   /**
