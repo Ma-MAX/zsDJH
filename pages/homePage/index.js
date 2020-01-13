@@ -46,37 +46,13 @@ Page({
   /**创建日历数据 */
   createDateListData: function(setYear, setMonth) {
     //全部时间的月份都是按0~11基准，显示月份才+1
-    let dataStr = [
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '休', bgc: 'yell'},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '假', bgc: 'yell'},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
-      {amount: '班', bgc: ''},
+    let datas = [
+      {'date': '2020','status': 1},
+      {'date': '2020','status': 2},
+      {'date': '2020','status': 3},
+   
+      
+
     ]
     let dateArr = []; //需要遍历的日历数组数据
     let arrLen = 0; //dateArr的数组长度
@@ -119,15 +95,35 @@ Page({
       if (index != -1) {
         clazz = clazz + ' active';
       } 
-      dateArr.push({
+      let d= datas.filter(x => x.date == date)
+      if (d.length >0) {
+        d = d[0]
+      }else {
+        d={};
+      }
+
+
+      let da = {
         day: j,
         class: clazz,
         bgc: '',
-        amount:'班'
-      })
+        amount:''
+      }
+
+      if(d.status == 1){
+        da.amount = '班'
+      }else if(d.status == 2){
+        da.amout = '休'
+      }else if(d.status == 3){
+        da.amout = '假'
+      }
+
+      dateArr.push(da)
       // dateArr.bgc = dataStr[j].bgc
       // dateArr.amount = dataStr[j].amount
-      console.log(dataStr[0].amount);
+     console.log(j);
+     
+     
       
     }
     this.setData({
