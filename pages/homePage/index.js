@@ -46,7 +46,38 @@ Page({
   /**创建日历数据 */
   createDateListData: function(setYear, setMonth) {
     //全部时间的月份都是按0~11基准，显示月份才+1
-
+    let dataStr = [
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '休', bgc: 'yell'},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '假', bgc: 'yell'},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+      {amount: '班', bgc: ''},
+    ]
     let dateArr = []; //需要遍历的日历数组数据
     let arrLen = 0; //dateArr的数组长度
     let now = setYear ? new Date(setYear, setMonth) : new Date();
@@ -94,6 +125,10 @@ Page({
         bgc: '',
         amount:'班'
       })
+      // dateArr.bgc = dataStr[j].bgc
+      // dateArr.amount = dataStr[j].amount
+      console.log(dataStr[0].bgc);
+      
     }
     this.setData({
       days: dateArr
