@@ -10,17 +10,28 @@
 }
 
 .right {
-  padding: 41rpx 26rpx 21rpx 0;
+  padding: 20rpx 26rpx 18rpx 0;
   font-size: 28rpx;
+}
+
+.weui-btn {
+  font-size: 30rpx;
+  background: #fff;
+  border-radius: 35rpx;
+  line-height: normal;
+  padding: 21rpx 0 21rpx 25rpx;
+}
+.weui-btn::after {
+  border: none;
 }
 
 .list-msg {
   width: 170rpx;
   height: 70rpx;
-  background: #fff;
-  padding: 21rpx 33rpx 21rpx 25rpx;
-  border-radius: 35rpx;
-  display: initial;
+  /* background: #fff; */
+  /* padding: 21rpx 33rpx 21rpx 25rpx; */
+  /* border-radius: 35rpx; */
+  /* display: initial; */
 }
 
 .select-img {

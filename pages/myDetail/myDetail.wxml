@@ -11,18 +11,24 @@
     </view>
     <view class="right">
       <view class="placeholder">
-        <view class='list-msg' bindtap='bindShowMsg'>
+        <!-- <view class='list-msg' bindtap='bindShowMsg'>
           <text>{{tihuoWay}}</text>
           <image class="select-img" src='../../images/下拉.png'></image>
-        </view>
+        </view> -->
+        <picker class="list-msg" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <button class="weui-btn" type="default">
+            <text>{{tihuoWay}}</text>
+            <image class="select-img" src='../../images/下拉.png'></image>
+          </button>
+        </picker>
       </view>
     </view>
   </view>
   <view class="page__hd">
     <view class="weui-form-preview" wx:for="{{detail}}">
       <view class="page__title">
-      <text>{{item.serverName}}</text>
-      <text class="status">{{item.cancelTypeName || ""}}</text>
+        <text>{{item.serverName}}</text>
+        <text class="status">{{item.cancelTypeName || ""}}</text>
       </view>
       <image class="page-img" src='../../images/组 5.png'></image>
       <view class="page__desc">
@@ -31,19 +37,19 @@
       </view>
       <view class="page__desc">
         <text class="page-label">服务地址：</text>
-        <text>{{item.house}}{{item.aHousingEstateName}}{{item.houseNo}}</text>
+        <text>{{item.addressInfo}}{{item.aHousingEstateName}}{{item.houseNo}}</text>
       </view>
       <view class="page__desc">
         <text class="page-label">服务次数：</text>
-        <text>{{item.serveredTimesCompose}}次</text>
+        <text>{{item.serverTimes}}次</text>
       </view>
       <view class="page__desc">
         <text class="page-label">预约时间：</text>
-        <text>{{item.appointServerDate}} {{item.timeIntervalName}}</text>
+        <text>{{item.appointmentDate}} {{item.timeIntervalName}}</text>
       </view>
       <view class="page__desc">
         <text class="page-label">服务时间：</text>
-        <text>{{item.serveredDate}} {{item.serveredTimeIntervalName}}</text>
+        <text>{{item.serverStartTime}} {{item.serveredTimeIntervalName}}</text>
       </view>
       <view class="page__desc">
         <text class="page-label">服务时长：</text>
