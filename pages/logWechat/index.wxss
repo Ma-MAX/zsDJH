@@ -18,13 +18,16 @@
 
 .logInput .inputBox .bon {
   position: absolute;
-  right: 12rpx;
+  right: 0rpx;
   top: 5rpx;
   height: 78rpx;
   font-size: 32rpx;
   color: #53ccfa;
-  background: #fff;
+  background: rgba(255,255,255,0);
   z-index: 10;
+}
+.logInput .inputBox .bon.disBtn{
+  color: #bfcbd9;
 }
 
 .logInput .inputBox input {

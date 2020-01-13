@@ -4,7 +4,10 @@
     "pages/homePage/index",
     "pages/index/index",
     "pages/serviceTicket/index",
-    "pages/achieve/index",
+    "pages/waitSer/index",
+    "pages/sering/index",
+    "pages/complead/index",
+    "pages/canceled/index",
     "pages/my/my",
     "pages/myDetail/myDetail"
 

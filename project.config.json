@@ -59,7 +59,7 @@
 				{
 					"id": 0,
 					"name": "已完成",
-					"pathName": "pages/achieve/index",
+					"pathName": "pages/waitSer/index",
 					"query": "",
 					"scene": null
 				},
@@ -74,6 +74,13 @@
 					"id": 2,
 					"name": "服务单",
 					"pathName": "pages/serviceTicket/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/homePage/index",
 					"query": "",
 					"scene": null
 				}
