@@ -1,16 +1,18 @@
 <view class="logInput">
 	<view class="inputBox">
 		<image src="../../images/phone.png" class="acc"></image>
-		<input name='loginName' bindinput="nameInput" placeholder='请输入用户名'></input>
+		<input name='loginName' value='{{loginName}}' bindinput="nameInput" placeholder='请输入用户名'></input>
 	</view>
 	<view class="inputBox">
 		<image src="../../images/acc.png" class="acc"></image>
 		<input name='verificationCode' bindinput="codeInput" value='{{verificationCode}}' placeholder='请输入验证码'></input>
-		<button bindtap="getcode" disabled="{{iscode}}" loading='{{codeLoading}}' class="bon">{{btntext}}</button>
+
+		<button bindtap="getcode" disabled="{{time>0}}" loading='{{codeLoading}}'  class="bon {{time>0?'disBtn':''}}">{{btntext}}</button>
+
     <button bindtap="login" disabled="{{islogin}}" loading='{{loginLoading}}' class="btm_button">登录</button>
 	</view>
 </view>
-<view class="bigBox">
+<!-- <view class="bigBox">
 	<text>使用微信登录</text>
 	<view>
 		<image src="../../images/wechat.png" class="wechatImg"></image>
@@ -19,4 +21,4 @@
 		<text>登录即代表您同意我们的</text>
 		<text>《服务协议》</text>
 	</view>
-</view>
+</view> -->

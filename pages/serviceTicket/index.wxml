@@ -1,57 +1,59 @@
 <view class="backGround">
-  <view>
-    <view class="toplist">
-      <view bindtap="today" class="sublist {{isday?'topactive':''}}">今日服务单（）</view>
-      <view bindtap="tomorrow" class="sublist {{!isday?'topactive':''}}">明日服务单</view>
-    </view>
-  </view>
-  <view hidden="{{!isday}}" class="head_list">
-    <view class="list">
-      <view bindtap="activeIndex" data-index="{{index}}" class="list_item {{index===currentIndexList?'active':''}}" wx:for="{{headList}}" wx:key="index">
-        {{headList[index]}}
-      </view>
-    </view>
-  </view>
-  <!-- 订单信息共用样式 -->
-  <view class="service_box">
-    <view class="{{cancelControl}}">
-      {{cancelState}}
-    </view>
-    <view class="box_head">
-      <text>床垫除螨</text>
-      <!-- 对接口时请使用变量 -->
-    </view>
-    <view class="service_list">
+	<view>
+		<view class="toplist">
+			<view bindtap="today" class="sublist {{isday?'topactive':''}}">今日服务单（）</view>
+			<view bindtap="tomorrow" class="sublist {{!isday?'topactive':''}}">明日服务单</view>
+		</view>
+	</view>
+	<view hidden="{{!isday}}" class="head_list">
+		<view class="list">
+			<view bindtap="activeIndex" data-index="{{index}}" class="list_item {{index===currentIndexList?'active':''}}" wx:for="{{headList}}" wx:key="index">
+				{{headList[index]}}
+			</view>
+		</view>
+	</view>
+	<!-- 订单信息共用样式 -->
+ 
+	<block wx:for="{{serOderData}}" wx:key="{{item.id}}">
+	 <view class="serOredBox" data-id="{{item.id}}" bindtap="gotoInfo">
+    <view class="title">
+			<text class="text">{{item.serverName}}</text>
+			<text class="status">{{resStatu}}</text>
+		</view>
+    <view class="resbody">
       <image src="../../images/首页选中.png" class="photo"></image>
-      <view class="text_box">
-        <view class="serviceOder">
-          <view class="serviceOder_list" wx:for="{{serviceList}}" wx:key="idex">
-            {{serviceList[index]}}
-          </view>
+      <view class="resInfo {{!isBtn?'notBor':''}}">
+        <view class="inoftext">
+          <view class="textTitle">服务客户：</view>
+          <view>{{item.userName}} {{item.phone}}</view>
         </view>
-        <view class="serviceOder" style="margin-left:30rpx;">
-          <view class="serviceOder_list" wx:for="{{dataList}}" wx:key="idex" style="color:#333;">
-            {{dataList[index]}}
-          </view>
+        <view class="inoftext">
+          <view class="textTitle">服务地址：</view>
+          <view>{{item.addressInfo}}</view>
+        </view>
+        <view class="inoftext">
+          <view class="textTitle">服务时间：</view>
+          <view>{{item.appointmentDate}}</view>
+        </view>
+        <view  wx:if="{{isTime}}" class="inoftext">
+          <view class="textTitle">服务时长：</view>
+          <view>{{item.serverDuration}} H</view>
         </view>
       </view>
     </view>
-    <!-- <view class="{{btnControl}}">
-      <view class="btn_confirm btn">修改订单</view>
-      <view class="btn_cancel btn">取消订单</view>
-    </view> -->
-    <view class="{{butnControl}}">
-      <view class="btn {{buttonStyle}}">{{buttonText}}</view>
+    <view class="foot" hidden="{{!isBtn}}">
+      <button class="btn" disabled="{{isDis}}" data-id="{{item.id}}" catchtap="btnClick">{{buttonText}}</button>
+    </view>
+   
+
+   </view>
+	</block>
+
+  <!-- 空单 -->
+  <view class="without" hidden="{{serOderData.length>0}}">
+    <view class="imgBox">
+      <image src="../../images/without.png"></image>
+      <view class="text">暂无服务单</view>
     </view>
   </view>
-  
-  <view class="control"></view>
-  <!-- shade 遮罩层样式-->
-  <view class="control">
-    <!-- pop 弹出层样式 -->
-    <view>今日服务单()</view>
-    <view>明日服务单</view>
-  </view>
-  <!-- 订单信息共用样式 -->
-  <!-- 待接单/待服务的按钮 -->
 </view>

@@ -1,0 +1,91 @@
+<view>
+	<view class="serOredBox" data-id="{{item.id}}" bindtap="gotoInfo">
+		<view class="title">
+			<image src="../../images/首页选中.png" class="detail_img1"></image>
+			<text class="text">{{serInfo.serverName}}</text>
+		</view>
+		<view class="resbody">
+      <view style="min-width: 240rpx;">
+        <image src="{{serInfo.thumbnailUrl}}" class="photo"></image>
+      </view>
+			<view class="resInfo">
+				<view class="inoftext">
+					<view class="textTitle">服务时长：</view>
+					<view>{{serInfo.serverDuration}}H</view>
+				</view>
+				<view class="inoftext">
+					<view class="textTitle">服务次数：</view>
+					<view>{{serInfo.serverTimes}}次</view>
+				</view>
+				<view class="inoftext">
+					<view class="textTitle">已服务：</view>
+					<view>{{serInfo.serveredTimes}}次</view>
+				</view>
+
+			</view>
+		</view>
+
+	</view>
+	<view class="dataInfo" style="margin-bottom: 20rpx;">
+    <view class="title">客户信息</view>
+		<view class="resInfo">
+    	<view class="inoftext">
+				<view class="textTitle">联系人：</view>
+				<view>{{serInfo.userName}}</view>
+			</view>
+      	<view class="inoftext">
+				<view class="textTitle">客户电话：</view>
+				<view>{{serInfo.phone}}</view>
+			</view>
+			<view class="inoftext">
+				<view class="textTitle">客户地址：</view>
+				<view>{{serInfo.address}}</view>
+			</view>
+			<view class="inoftext">
+				<view class="textTitle">客户资料备注：</view>
+				<view>{{serInfo.customerTag}}</view>
+			</view>
+			<view class="inoftext">
+				<view class="textTitle">客户备注：</view>
+				<view>{{serInfo.userRemarks}}</view>
+			</view>
+
+		</view>
+	</view>
+
+  <view class="dataInfo">
+    <view class="title">服务信息</view>
+		<view class="resInfo">
+    	<view class="inoftext">
+				<view class="textTitle">服务人员：</view>
+				<view>{{serInfo.employName}}</view>
+			</view>
+      	<view class="inoftext">
+				<view class="textTitle">服务单编号：</view>
+				<view>{{serInfo.serverWorkNo}}</view>
+			</view>
+			<view class="inoftext">
+				<view class="textTitle">预约时间：</view>
+				<view>{{serInfo.serverDate}}</view>
+			</view>
+			<view class="inoftext">
+				<view class="textTitle">开始时间：</view>
+				<view>{{serInfo.serverStartTime}}</view>
+			</view>
+			<view class="inoftext">
+				<view class="textTitle">结束时间：</view>
+				<view>{{serInfo.serverEndTime}}</view>
+			</view>
+      <view class="inoftext">
+				<view class="textTitle">服务时长：</view>
+				<view>{{serInfo.serverDuration}}</view>
+			</view>
+     
+		</view>
+   
+	</view>
+  <view class="foot">
+    <button class="btn {{red?'endBtn':''}}" disabled="{{endBtn}}"  bindtap="endClick">{{buttonText}}</button>
+    <button class="btn" disabled="{{contactBtn}}" bindtap="contacClick">联系客户</button>
+  </view>
+</view>

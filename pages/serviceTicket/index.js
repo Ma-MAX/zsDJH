@@ -7,6 +7,9 @@ Page({
    */
   data: {
     isday: true,
+    isBtn: true,
+    isTime: false,
+    isDis: false,
     listData: {
       p:1,
       s:1000,
@@ -14,10 +17,14 @@ Page({
         status: 'WAIT_SERVER',
       }
     },
+    listData2: {
+      p:1,
+      s:1000,
+    },
+    serOderData: [],
     currentIndexList: 0,
     headList: [ "待服务", "服务中", "已完成", "已取消"],
-    serviceList: ["服务客户: ", "服务地址: ", "服务时间: "],
-    dataList:["6次(服务3)","李四", "2019-12-12-8:00-12:00(周一)"],
+    resStatu: '待服务',
     cancelState:"已完成",
     // Control 均为控制 view视图
     cancelControl:"cancel_state",
@@ -38,37 +45,202 @@ Page({
       cancelState: headList[e.target.dataset.index],
       butnControl: (e.target.dataset.index < 2) ? "btn_box" : "control",
     })
-    if (data.cancelState !="待服务"){
+    if (data.cancelState =="服务中"){
       this.setData({
-        buttonText:"结束服务"
+        isTime: true,
+        buttonText:"结束服务",
+        isBtn: true,
+        resStatu: "服务中",
+        listData:{
+          p:1,
+          s:1000,
+          condition: {
+            status: 'SERVICEING',
+          }
+        }
       })
+
+      this.getTodayOred()
       
-    }else{
+    }else if (data.cancelState =="待服务"){
       this.setData({
-        buttonText: "开始服务"
+        isTime: false,
+        buttonText:"开始服务",
+        isBtn: true,
+        resStatu: "待服务",
+        listData:{
+          p:1,
+          s:1000,
+          condition: {
+            status: 'WAIT_SERVER',
+          }
+        }
       })
+
+      this.getTodayOred()
+    }else if (data.cancelState =="已完成"){
+      this.setData({
+        isTime: false,
+        resStatu: "已完成",
+        isBtn: false,
+        listData:{
+          p:1,
+          s:1000,
+          condition: {
+            status: 'COMPLETED',
+          }
+        }
+      })
+
+      this.getTodayOred()
+    }else if (data.cancelState =="已取消"){
+      this.setData({
+        isTime: false,
+        resStatu: "已取消",
+        isBtn: false,
+        listData:{
+          p:1,
+          s:1000,
+          condition: {
+            status: 'CANCELED',
+          }
+        }
+      })
+
+      this.getTodayOred()
     }
   },
-  getOred() {
+  getTodayOred() {
     const url = `/api/order/small-program/employ/today-work-order-list`
     fetch.postRes(url,this.data.listData).then(res => {
-      if(res.data == 200) {
-        console.log(res.data);
-        
-      }
+       this.setData({
+        serOderData: res.data.data
+       })
+    })
+  },
+  getTomOred() {
+    const url = `/api/order/small-program/employ/tomorrow-work-order-list`
+    fetch.postRes(url,this.data.listData2).then(res => {
+      this.setData({
+        resStatu: '待服务',
+        serOderData: res.data.data
+      })
+     
     })
   },
   today() {
-    
     this.setData({
-      isday: true
+      isday: true,
+      isBtn: true
     })
+    this.getTodayOred()
+    
   },
   tomorrow() {
-    
     this.setData({
-      isday: false
+      isday: false,
+      isBtn: false
     })
+    
+    this.getTomOred()
+    
+  },
+
+  // 开始&结束服务
+  btnClick(e) {
+    this.setData({
+      isDis: true,
+    })
+    if(this.data.buttonText == '开始服务'){
+   
+      const url = `/api/order/small-program/employ/start-server/${e.currentTarget.dataset.id}`
+      fetch.getRes(url).then(res => {
+        this.setData({
+          isDis: false,
+        })
+        if(res.data.code == '200'){
+          wx.showToast({
+            title: '操作成功',
+            icon: 'success',
+            duration: 2000
+          })
+          this.getTodayOred()
+        }else if(res.data.code == '500'){
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    }else if(this.data.buttonText == '结束服务'){
+      
+      const url = `/api/order/small-program/employ/end-server/${e.currentTarget.dataset.id}`
+      fetch.getRes(url).then((res) => {
+        this.setData({
+          isDis: false,
+        })
+        if(res.data.code == '200'){
+          wx.showToast({
+            title: '操作成功',
+            icon: 'success',
+            duration: 2000
+          })
+         
+          this.getTodayOred()
+        }else if(res.data.code == '500'){
+          
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 1000
+          })
+        }
+       
+      
+      })
+    }
+  },
+
+  gotoInfo(e) {
+    if (this.data.resStatu =="待服务"){
+     
+      wx.navigateTo({
+        url: `/pages/waitSer/index?id=${e.currentTarget.dataset.id}&isBtn=${this.data.isday}`,
+        events: {
+          // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
+          acceptDataFromOpenedPage: function(data) {
+            console.log('变了');
+            this.getTodayOred()
+          },
+        }
+      })
+    }else if (this.data.resStatu =="服务中"){
+      
+      wx.navigateTo({
+        url: `/pages/sering/index?id=${e.currentTarget.dataset.id}`,
+        events: {
+          // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
+          acceptDataFromOpenedPage: function(data) {
+            console.log('变了');
+            
+            this.getTodayOred()
+          },
+        }
+      })
+    }else if (this.data.resStatu =="已完成"){
+      
+      wx.navigateTo({
+        url: `/pages/complead/index?id=${e.currentTarget.dataset.id}`,
+        
+      })
+    }else if (this.data.resStatu =="已取消"){
+      
+      wx.navigateTo({
+        url: `/pages/canceled/index?id=${e.currentTarget.dataset.id}`,
+        
+      })
+    }
   },
 
   
@@ -82,7 +254,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    this.getOred()
+    this.getTodayOred()
   },
 
   /**

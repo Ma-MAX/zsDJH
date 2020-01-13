@@ -6,14 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    loginName: '',
+    loginName: '13689597476',
     verificationCode: '',
     codeLoading: false,
     iscode: false,
     loginLoading: false,
     islogin: false,
     btntext: '获取验证码',
-
+    time: 0
   },
   nameInput: function (e) {
     this.setData({
@@ -25,26 +25,60 @@ Page({
       verificationCode: e.detail.value
     })
   },
+  getCountDown(){ //验证码一分钟倒计时
+    var time = parseInt(this.time);
+    
+},
   getcode(e) {
-    this.data.codeLoading = true
-    this.data.iscode = true
+    this.setData({
+      codeLoading: true,
+      iscode: true
+    })
+    
     const url = `/api/auth/verification-code?mobile=${this.data.loginName}`
    
     fetch.getRes(url).then(res => {
-      this.data.codeLoading = false
-      this.data.iscode = false
+      this.setData({
+        codeLoading: false,
+      })
+      
       if(res.data.code == 200){
+        
+        var countDown = 60;
+        var setID = setInterval(() => {
+          
+          this.setData({
+            time: countDown,
+            btntext: `${countDown}秒后重新获取`
+          })
+          countDown--
+          if(countDown == 0){
+            this.setData({
+              time: 0,
+              btntext: `获取验证码`
+            })
+            clearInterval(setID)
+          }
+        }, 1000)
+
+        wx.showToast({
+          title: '发送成功',
+          icon: 'success',
+          duration: 1000
+        })
         this.setData({
           verificationCode: res.data.message
         });
-
       }
     })
   },
 
   login(e) {
-    this.data.loginLoading = true
-    this.data.islogin = true
+    this.setData({
+      loginLoading: true,
+      islogin: true
+    })
+    
     const data = {
       loginName: this.data.loginName,
       verificationCode: this.data.verificationCode,
