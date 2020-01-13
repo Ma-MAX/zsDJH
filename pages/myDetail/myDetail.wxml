@@ -4,23 +4,26 @@
     <view class="weui-flex__item">
       <view class="left">
         <view class="placeholder">
-          <view class='list-msg' bindtap='bindShowMsg'>
-            <text>{{tihuoWay}}</text>
-            <image class="select-img" src='../../images/下拉.png'></image>
-          </view>
+          <text>总数：{{title.totalCount}}</text>
+          <text style="margin-left:49rpx">总时长：{{title.totalHour}}H</text>
         </view>
       </view>
     </view>
     <view class="right">
       <view class="placeholder">
-        <text>总数：{{title.totalCount}}\n</text>
-        <text>总时长：{{title.totalHour}}H</text>
+        <view class='list-msg' bindtap='bindShowMsg'>
+          <text>{{tihuoWay}}</text>
+          <image class="select-img" src='../../images/下拉.png'></image>
+        </view>
       </view>
     </view>
   </view>
   <view class="page__hd">
     <view class="weui-form-preview" wx:for="{{detail}}">
-      <view class="page__title">{{item.serverName}}</view>
+      <view class="page__title">
+      <text>{{item.serverName}}</text>
+      <text class="status">{{item.cancelTypeName || ""}}</text>
+      </view>
       <image class="page-img" src='../../images/组 5.png'></image>
       <view class="page__desc">
         <text class="page-label">服务客户：</text>

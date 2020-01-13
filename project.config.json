@@ -81,7 +81,11 @@
 					"id": -1,
 					"name": "首页",
 					"pathName": "pages/homePage/index",
-					"query": "",
+					"query": ""
+					
+				},{
+					"name": "我的详情",
+					"pathName": "pages/myDetail/myDetail",
 					"scene": null
 				}
 			]
