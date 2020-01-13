@@ -111,6 +111,8 @@ Page({
     }
   },
   getTodayOred() {
+    console.log('请求了');
+    
     const url = `/api/order/small-program/employ/today-work-order-list`
     fetch.postRes(url,this.data.listData).then(res => {
        this.setData({
@@ -206,27 +208,14 @@ Page({
     if (this.data.resStatu =="待服务"){
      
       wx.navigateTo({
-        url: `/pages/waitSer/index?id=${e.currentTarget.dataset.id}&isBtn=${this.data.isday}`,
-        events: {
-          // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
-          acceptDataFromOpenedPage: function(data) {
-            console.log('变了');
-            this.getTodayOred()
-          },
-        }
+        url: `/pages/waitSer/index?id=${e.currentTarget.dataset.id}&isBtn=${this.data.isday}`
+       
       })
     }else if (this.data.resStatu =="服务中"){
       
       wx.navigateTo({
         url: `/pages/sering/index?id=${e.currentTarget.dataset.id}`,
-        events: {
-          // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
-          acceptDataFromOpenedPage: function(data) {
-            console.log('变了');
-            
-            this.getTodayOred()
-          },
-        }
+       
       })
     }else if (this.data.resStatu =="已完成"){
       
@@ -254,14 +243,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    this.getTodayOred()
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.getTodayOred()
   },
 
   /**

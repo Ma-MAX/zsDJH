@@ -73,7 +73,7 @@ page {
   display: flex;
 }
 .resInfo .inoftext .textTitle{
-  min-width: 140rpx;
+  min-width: 150rpx;
 }
 
 .foot{
@@ -85,7 +85,7 @@ page {
   width:90px;
   height:30px; 
   line-height: 30px;
-  border:2rpx solid rgba(230,0,32,1);
+  border:1px solid rgba(230,0,32,1);
   border-radius:10rpx;
   font-size: 14px;
   background-color: #fff;
@@ -105,6 +105,7 @@ page {
   padding: 20rpx 30rpx;
   font-size: 30rpx;
   display: inline-block;
+  text-align: center;
 }
 
 .list_item.active {

@@ -1,88 +1,198 @@
-// pages/text/index.js
+
+import fetch from '../../utils/fetch.js'
+var Moment = require("../../utils/moment.js");
+var DATE_YEAR = new Date().getFullYear();
+var DATE_MONTH = new Date().getMonth() + 1;
+var DATE_DAY = new Date().getDate();
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    calendarConfig: {
-      /**
-       * 初始化日历时指定默认选中日期，如：'2018-3-6' 或 '2018-03-06'
-       * 初始化时不默认选中当天，则将该值配置为false。
-       */
-      multi: true, // 是否开启多选,
-      theme: 'elegant', // 日历主题，目前共两款可选择，默认 default 及 elegant，自定义主题在 theme 文件夹扩展
-      showLunar: true, // 是否显示农历，此配置会导致 setTodoLabels 中 showLabelAlways 配置失效
-      inverse: true, // 单选模式下是否支持取消选中,
-      chooseAreaMode: true, // 开启日期范围选择模式，该模式下只可选择时间段
-      markToday: '今', // 当天日期展示不使用默认数字，用特殊文字标记
-      defaultDay: '2018-3-6', // 默认选中指定某天；当为 boolean 值 true 时则默认选中当天，非真值则在初始化时不自动选中日期，
-      highlightToday: true, // 是否高亮显示当天，区别于选中样式（初始化时当天高亮并不代表已选中当天）
-      takeoverTap: true, // 是否完全接管日期点击事件（日期不会选中），配合 onTapDay() 使用
-      preventSwipe: true, // 是否禁用日历滑动切换月份
-      disablePastDay: true, // 是否禁选当天之前的日期
-      disableLaterDay: true, // 是否禁选当天之后的日期
-      firstDayOfWeek: 'Mon', // 每周第一天为周一还是周日，默认按周日开始
+    year: '',
+    month: '',
+    day: '',
+    days: {},
+    systemInfo: {},
+    weekStr: ['日', '一', '二', '三', '四', '五', '六'],
+    checkDate:[],
+    homeData: {}
+  },
+  onLoad: function(options) {
+    var _this = this;
+    let now = new Date();
+    let year = now.getFullYear();
+    let month = now.getMonth() + 1;
+    // 页面初始化 options为页面跳转所带来的参数
+    this.createDateListData();
+    this.setData({
+      year: year,
+      month: month
+    })
+    wx.getSystemInfo({
+      success: function(res) {
+        _this.setData({
+          systemInfo: res,
+        });
+      }
+    })
+  },
+  onReady: function() {
+    // 页面渲染完成
+  },
+  onShow: function() {
+    this.getHomeData()
+  },
+  
+
+  /**创建日历数据 */
+  createDateListData: function(setYear, setMonth) {
+    //全部时间的月份都是按0~11基准，显示月份才+1
+    let datas = [
+      {'date': '2020','status': 1},
+      {'date': '2020','status': 2},
+      {'date': '2020','status': 3},
+   
       
-      hideHeadOnWeekMode: true, // 周视图模式是否隐藏日历头部
-      showHandlerOnWeekMode: true // 周视图模式是否显示日历头部操作栏，hideHeadOnWeekMode 优先级高于此配置
+
+    ]
+    let dateArr = []; //需要遍历的日历数组数据
+    let arrLen = 0; //dateArr的数组长度
+    let now = setYear ? new Date(setYear, setMonth) : new Date();
+    let year = setYear || now.getFullYear();
+    let nextYear = 0;
+    let month = setMonth || now.getMonth();
+    //没有+1方便后面计算当月总天数
+    let nextMonth = (month + 1) > 11 ? 1 : (month + 1);
+    console.log("当前选中月nextMonth：" + nextMonth);
+    //目标月1号对应的星期
+    let startWeek = this.getWeek(year, nextMonth, 1); //new Date(year + ',' + (month + 1) + ',' + 1).getDay();  
+    console.log("目标月1号对应的星期startWeek:" + startWeek);
+    //获取目标月有多少天
+    let dayNums = this.getTotalDayByMonth(year, nextMonth); //new Date(year, nextMonth, 0).getDate();         
+    console.log("获取目标月有多少天dayNums:" + dayNums);
+    let obj = {};
+    let num = 0;
+    if (month + 1 > 11) {
+      nextYear = year + 1;
+      dayNums = new Date(nextYear, nextMonth, 0).getDate();
     }
+    for (var j = -startWeek + 1; j <= dayNums; j++) {
+      var tempWeek = -1;
+      if (j > 0) {
+        tempWeek = this.getWeek(year, nextMonth, j);
+        //console.log(year + "年" + month + "月" + j + "日" + "星期" + tempWeek);
+      }
+      var clazz = '';
+      if (tempWeek == 0 || tempWeek == 6)
+        clazz = 'week'
+      if (j < DATE_DAY && year == DATE_YEAR && nextMonth == DATE_MONTH)
+        //当天之前的日期不可用
+        clazz = 'unavailable ' + clazz;
+      else
+        clazz = '' + clazz
+      /**如果当前日期已经选中，则变色 */
+      var date = year + "-" + nextMonth + "-" + j;
+      var index = this.checkItemExist(this.data.checkDate, date);
+      if (index != -1) {
+        clazz = clazz + ' active';
+      } 
+      let d= datas.filter(x => x.date == date)
+      if (d.length >0) {
+        d = d[0]
+      }else {
+        d={};
+      }
+
+
+      let da = {
+        day: j,
+        class: clazz,
+        bgc: '',
+        amount:''
+      }
+
+      if(d.status == 1){
+        da.amount = '班'
+      }else if(d.status == 2){
+        da.amout = '休'
+      }else if(d.status == 3){
+        da.amout = '假'
+      }
+
+      dateArr.push(da)
+      // dateArr.bgc = dataStr[j].bgc
+      // dateArr.amount = dataStr[j].amount
+     console.log(j);
+     
+     
+      
+    }
+    this.setData({
+      days: dateArr
+    })
+  },
+  /**
+   * 上个月
+   */
+  lastMonthEvent:function(){
+    //全部时间的月份都是按0~11基准，显示月份才+1
+    let year = this.data.month - 2 < 0 ? this.data.year - 1 : this.data.year;
+    let month = this.data.month - 2 < 0 ? 11 : this.data.month - 2;
+    this.setData({
+      year: year,
+      month: (month + 1)
+    })
+    this.createDateListData(year, month);
+  },
+  /**
+   * 下个月
+   */
+  nextMonthEvent:function(){
+    //全部时间的月份都是按0~11基准，显示月份才+1
+    let year = this.data.month > 11 ? this.data.year + 1 : this.data.year;
+    let month = this.data.month > 11 ? 0 : this.data.month;
+    this.setData({
+      year: year,
+      month: (month + 1)
+    })
+    this.createDateListData(year, month);
+  },
+  /*
+   * 获取月的总天数
+   */
+  getTotalDayByMonth: function(year, month) {
+    month = parseInt(month, 10);
+    var d = new Date(year, month, 0);
+    return d.getDate();
+  },
+  /*
+   * 获取月的第一天是星期几
+   */
+  getWeek: function(year, month, day) {
+    var d = new Date(year, month - 1, day);
+    return d.getDay();
+  },
+  /**
+   * 点击日期事件
+   */
+ 
+  
+  /**检查数组中是否存在该元素 */
+  checkItemExist: function (arr,value){
+    for (var i = 0; i < arr.length; i++) {
+      if (value === arr[i].day) {
+        return i;
+      }
+    }
+    return -1;
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  getHomeData() {
+    const url =`/api/order/small-program/employ/home-page/work-order`
 
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    fetch.postRes(url).then(res => {
+      this.setData({
+        homeData: res.data.data
+      })
+    })
   }
 })
-
