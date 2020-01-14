@@ -8,6 +8,7 @@ Page({
   data: {
     select: false,
     tihuoWay: '本月',
+    array: ['本月','上月'],
     detail: [],
     title: [],
     param: {
@@ -94,9 +95,29 @@ Page({
       select: !this.data.select
     })
   },
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    // this.setData({
+    //   index: e.detail.value
+    // })
+    this.data.param.condition.monthValue = e.detail.value == 0 ? 'CURENT_MONTH' : 'PRE_MONTH';
+    this.setData({
+      tihuoWay: this.data.array[e.detail.value]
+    });
+    request.postRes(this.data.api.finishOrder, this.data.param).then(res => {
+      this.setData({
+        detail: res.data.data
+      })
+    })
+    request.postRes(this.data.api.titleInfo, this.data.param.condition).then(res => {
+      this.setData({
+        title: res.data.data
+      })
+    });
+  },
   mySelect(e) {
     var name = e.currentTarget.dataset.name;
-    this.data.param.condition.month = e.currentTarget.dataset.value;
+    this.data.param.condition.monthValue = e.currentTarget.dataset.value;
     this.setData({
       tihuoWay: name,
       select: false

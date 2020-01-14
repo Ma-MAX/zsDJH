@@ -84,7 +84,8 @@
 					"query": ""
 				},
 				{
-					"name": "我的详情",
+					"id": -1,
+					"name": "pages/myDetail/myDetail",
 					"pathName": "pages/myDetail/myDetail",
 					"scene": null
 				}
