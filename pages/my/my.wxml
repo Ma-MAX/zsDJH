@@ -11,7 +11,7 @@
           <text class="area" wx:for="{{infoData.orgList}}">{{item.companyName}}</text>
         </view>
         <view class="right">
-          <text style="font-size:32rpx">{{infoData.mobile}}</text>
+          <text style="font-size:32rpx" class="Roboto">{{infoData.mobile}}</text>
           <text class="area" wx:for="{{infoData.orgList}}">{{item.storeName}}</text>
         </view>
       </view>
@@ -39,9 +39,15 @@
       <image class="today-to" src="../../images/右箭头.png"></image>
     </view>
     <view class="text-container">
-      <text>总服务单：{{myData.totalCount}}</text>
-      <text style="margin-left:92rpx;">服务单：{{myData.serverNormalCount}}</text>
-      <text style="margin-left:92rpx;">售后单：{{myData.refundCount}}</text>
+      <text>总服务单：<text class="Roboto">{{myData.totalCount}}</text></text>
+      <text style="margin-left:92rpx;">
+      <text>服务单：</text>
+      <text class="Roboto">{{myData.serverNormalCount}}</text>
+      </text>
+      <text style="margin-left:92rpx;">
+      <text>售后单：</text>
+      <text class="Roboto">{{myData.refundCount}}</text>
+      </text>
     </view>
   </view>
   <view class="cancel">
