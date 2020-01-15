@@ -5,6 +5,9 @@ var DATE_YEAR = new Date().getFullYear();
 var DATE_MONTH = new Date().getMonth() + 1;
 var DATE_DAY = new Date().getDate();
 
+const today = `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`
+const tomorrow = `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()+1}`
+console.log(tomorrow);
 Page({
   data: {
     year: '',
@@ -15,13 +18,16 @@ Page({
     weekStr: ['日', '一', '二', '三', '四', '五', '六'],
     checkDate:[],
     homeData: {},
-    timetable: {}
+    timetable: {},
+    date: today,
+    workTable:[]
   },
 
   getTimetable() {
     const url = ``
   },
   onLoad: function(options) {
+    this.getWork()
     var _this = this;
     let now = new Date();
     let year = now.getFullYear();
@@ -42,10 +48,11 @@ Page({
   },
   onReady: function() {
     // 页面渲染完成
+   
   },
   onShow: function() {
     this.getHomeData()
-
+    
   },
   
 
@@ -53,19 +60,40 @@ Page({
   createDateListData: function(setYear, setMonth) {
     //全部时间的月份都是按0~11基准，显示月份才+1
     let datas = [
-      {
-        'date': '2020-01-13',
-        'state': 1
-      },
-      {
-        'date': '2020-01-14',
-        'state': 2
-      },
-      {
-        'date': '2020-01-15',
-        'state': 3
-      }
+      {'date': '2020-01-13','state': 1},
+      {'date': '2020-01-14','state': 2},
+      {'date': '2020-01-15','state': 3},
+      {'date': '2020-01-14','state': 2},
+      {'date': '2020-01-15','state': 3},
+      {'date': '2020-01-13','state': 1},
+      {'date': '2020-01-14','state': 2},
+      {'date': '2020-01-15','state': 3},
+      {'date': '2020-01-14','state': 2},
+      {'date': '2020-01-15','state': 3},
+      {'date': '2020-01-13','state': 1},
+      {'date': '2020-01-14','state': 2},
+      {'date': '2020-01-15','state': 3},
+      {'date': '2020-01-14','state': 2},
+      {'date': '2020-01-15','state': 3},
+      {'date': '2020-01-13','state': 1},
+      {'date': '2020-01-14','state': 2},
+      {'date': '2020-01-15','state': 3},
+      {'date': '2020-01-14','state': 2},
+      {'date': '2020-01-15','state': 3},
+      {'date': '2020-01-13','state': 1},
+      {'date': '2020-01-14','state': 2},
+      {'date': '2020-01-15','state': 3},
+      {'date': '2020-01-14','state': 2},
+      {'date': '2020-01-15','state': 3},
+      {'date': '2020-01-13','state': 1},
+      {'date': '2020-01-14','state': 2},
+      {'date': '2020-01-15','state': 3},
+      {'date': '2020-01-14','state': 2},
+      {'date': '2020-01-15','state': 3},
+      {'date': '2020-01-15','state': 3},
     ];
+    console.log(this.data.workTable);
+    
     let dateArr = []; //需要遍历的日历数组数据
     let arrLen = 0; //dateArr的数组长度
     let now = setYear ? new Date(setYear, setMonth) : new Date();
@@ -109,27 +137,35 @@ Page({
       if (index != -1) {
         clazz = clazz + ' active';
       } 
-      console.log('------', date);
-      let d = datas.filter(x => x.date == date);
-      if (d.length > 0) {
-        d = d[0];
-      } else {
-        d = {};
-      }
+      // console.log('------', date);
+      // let d = datas.filter(x => x.date == date);
+      // if (d.length > 0) {
+      //   d = d[0];
+      // } else {
+      //   d = {};
+      // }
       let da = {
         day: j,
         class: clazz,
         bgc: '',
         amount:''
       }
+      if(j>0) {
+        if(datas[j-1].state){
 
-      if (d.state == 1) {
-        da.amount = '班';
-      } else if (d.state == 2) {
-        da.amount = '休';
-      } else if (d.state == 3) {
-        da.amount = '假';
+          // da.amount = datas[j-1].state
+          // if(datas[j-1].state != '班'){
+          //   da.bgc = 'yell'
+          // }
+        }else{
+          da.amount = ''
+        }
+
+       
+       
       }
+      // if()
+
       dateArr.push(da)
       // dateArr.bgc = dataStr[j].bgc
       // dateArr.amount = dataStr[j].amount
@@ -138,6 +174,7 @@ Page({
     this.setData({
       days: dateArr
     })
+   
   },
   /**
    * 上个月
@@ -191,11 +228,66 @@ Page({
     var d = new Date(year, month - 1, day);
     return d.getDay();
   },
-  /**
+
+   /**
    * 点击日期事件
    */
+  onPressDateEvent: function(e) {
+    var {
+      year,
+      month,
+      day,
+      amount
+    } = e.currentTarget.dataset;
+    let now = `${year}-${month}-${day}`
+    if ((now != today) && (now != tomorrow)) {
+      return;
+    }
+    this.setData({
+      date: now
+    })
+    this.getHomeData()
+    console.log("当前点击的日期：" + year + "-" + month + "-" + day);
+    //当前选择的日期为同一个月并小于今天，或者点击了空白处（即day<0），不执行
+    if ((day < DATE_DAY && month == DATE_MONTH) || day <= 0)
+      return;
  
-  
+    this.renderPressStyle(year, month, day, amount);
+  },
+  renderPressStyle: function (year, month, day, amount) {
+    var days = this.data.days;
+    //渲染点击样式
+    for (var j = 0; j < days.length; j++) {
+      var tempDay = days[j].day;
+      if (tempDay == day) {
+        var date = year + "-" + month + "-" + day;
+        var obj = {
+          day: date,
+          amount: amount
+        };
+        var checkDateJson = this.data.checkDate;
+        var index = this.checkItemExist(checkDateJson, date);
+        if (index == -1) {
+          checkDateJson.push(obj);
+          days[j].class = days[j].class + ' red';
+        } else 
+        {
+          checkDateJson.splice(index, 1);
+          days[j].class = days[j].class.replace('red',' ');
+        }
+        this.setData({
+          checkDate: checkDateJson
+        })
+        console.log(JSON.stringify(this.data.checkDate));
+        break;
+      }
+    }
+    this.setData({
+      days: days
+    });
+    
+  },
+
   /**检查数组中是否存在该元素 */
   checkItemExist: function (arr,value){
     for (var i = 0; i < arr.length; i++) {
@@ -208,11 +300,49 @@ Page({
 
   getHomeData() {
     const url =`/api/order/small-program/employ/home-page/work-order`
-
-    fetch.postRes(url).then(res => {
+    const data = {
+      date: this.data.date
+    }
+    fetch.postRes(url,data).then(res => {
       this.setData({
         homeData: res.data.data
       })
     })
-  }
+  },
+  getNowMonthDate() {
+    var date = new Date();
+    var year = date.getFullYear() + "";
+    var month = (date.getMonth() + 1) + "";
+   
+    // 本月第一天日期
+    var begin = year + "-" + month+ "-" + "01" 
+    
+    // 本月最后一天日期    
+    var lastDateOfCurrentMonth = new Date(year,month,0);
+    var end = year + "-" + month + "-" + lastDateOfCurrentMonth.getDate()
+    return {begin ,end};
+  },
+
+  getWork() {
+    const timeList = this.getNowMonthDate()
+    
+    const url = `/api/zswy/work-table/small-program/list-month`
+    const data = {
+      startTime: timeList.begin,
+      endTime: timeList.end
+    }
+    fetch.postRes(url,data).then(res => {
+      let work = []
+      res.data.data.forEach(ele => {
+        let obj ={}
+        obj.date = ele.tableTimeDate,
+        obj.state = ele.workTableStatusName,
+        obj.count = ele.workCount
+        work.push(obj)
+      });
+      this.setData({
+        workTable:work
+      })
+    })
+  },
 })
