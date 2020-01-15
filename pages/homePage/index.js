@@ -14,7 +14,12 @@ Page({
     systemInfo: {},
     weekStr: ['日', '一', '二', '三', '四', '五', '六'],
     checkDate:[],
-    homeData: {}
+    homeData: {},
+    timetable: {}
+  },
+
+  getTimetable() {
+    const url = ``
   },
   onLoad: function(options) {
     var _this = this;
@@ -40,6 +45,7 @@ Page({
   },
   onShow: function() {
     this.getHomeData()
+
   },
   
 
@@ -67,6 +73,7 @@ Page({
     let nextYear = 0;
     let month = setMonth || now.getMonth();
     //没有+1方便后面计算当月总天数
+    // let nextMonth = (month + 1) > 11 ? 1 : (month + 1);
     let nextMonth = month + 1;
     console.log("当前选中月nextMonth：" + nextMonth);
     //目标月1号对应的星期
@@ -102,6 +109,7 @@ Page({
       if (index != -1) {
         clazz = clazz + ' active';
       } 
+      console.log('------', date);
       let d = datas.filter(x => x.date == date);
       if (d.length > 0) {
         d = d[0];
@@ -135,6 +143,10 @@ Page({
    * 上个月
    */
   lastMonthEvent:function(){
+    //全部时间的月份都是按0~11基准，显示月份才+1
+    // let year = this.data.month - 2 < 0 ? this.data.year - 1 : this.data.year;
+    // let month = this.data.month - 2 < 0 ? 11 : this.data.month - 2;
+
     //获取上一月
     let date = new Date(this.data.year, this.data.month - 1 - 1);
     let year = date.getFullYear();
@@ -143,12 +155,17 @@ Page({
       year: year,
       month: month
     })
+    // this.createDateListData(year, month);
     this.createDateListData(year, month - 1);
   },
   /**
    * 下个月
    */
   nextMonthEvent:function(){
+    //全部时间的月份都是按0~11基准，显示月份才+1
+    // let year = this.data.month > 11 ? this.data.year + 1 : this.data.year;
+    // let month = this.data.month > 11 ? 0 : this.data.month;
+
     // 获取下一月数据 因为Date对象中 月份是从0-11，所以这个地方直接取当前的月份，就相当于下一月了
     let date = new Date(this.data.year, this.data.month - 1 + 1);
     let year = date.getFullYear();
