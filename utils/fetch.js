@@ -95,5 +95,6 @@ function postRes(url, data) {
 //   })
 // }
 
+module.exports.BACS_URl = BACS_URl;
 module.exports.getRes = getRes;
 module.exports.postRes = postRes;

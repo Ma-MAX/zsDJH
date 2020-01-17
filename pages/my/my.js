@@ -16,7 +16,7 @@ Page({
       list: '/api/order/small-program/employ/complet-work-order-list-statis',
       info: '/api/upms/mini-program/get-info',
       service:'/api/order/server-employee/mini-program/list',
-      imgUrl: '/api/dfs/get/base64/'
+      imgUrl: '/api/dfs/download/'
     }
   },
 
@@ -28,10 +28,8 @@ Page({
       this.setData({
         infoData: res.data.data
       });
-      request.getRes(this.data.api.imgUrl+res.data.avatar).then(x => {
-        this.setData({
-          userInfo: `data: image/png;base64,${x.data}`
-        });
+      this.setData({
+        userInfo: request.BACS_URl +this.data.api.imgUrl +'?id='+ res.data.data.avatar
       })
     });
     request.getRes(this.data.api.service).then(res => {

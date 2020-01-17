@@ -85,8 +85,9 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/myDetail/myDetail",
-					"pathName": "pages/myDetail/myDetail",
+					"name": "pages/my/my",
+					"pathName": "pages/my/my",
+					"query": "",
 					"scene": null
 				}
 			]
