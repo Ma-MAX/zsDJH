@@ -17,7 +17,7 @@
 				</view>
 			</view>
 			<view class="layout-flex row" style="flex-wrap: wrap;margin-top:30rpx;">
-				<view class="date-day {{item.day>0?item.bgc:''}}" style="width:14.285714%;height:{{systemInfo.windowWidth/7}}px;" data-year="{{year}}" data-month="{{month}}" data-day="{{item.day}}" data-amount="{{item.amount}}"  wx:for="{{days}}" wx:key="index">
+				<view class="date-day {{item.day<=0?'bgwhite':item.class}} {{item.day>0?item.bgc:''}}" style="width:14.285714%;height:{{systemInfo.windowWidth/7}}px;" data-year="{{year}}" data-month="{{month}}" data-day="{{item.day}}" data-amount="{{item.amount}}" bindtap="onPressDateEvent" wx:for="{{days}}" wx:key="index">
 					<view class='item-days'>
 						<text>{{item.day>0?(item.daytext?item.daytext:item.day):''}}</text>
 						<text class='amount' wx:if='{{item.day>0}}'>{{item.amount}}</text>
@@ -28,7 +28,7 @@
 	</view>
 	<view class="box">
 		<view class="serNum">
-			<view class="title">今日服务单：{{homeData.todayServerCount}}</view>
+			<view class="title">当日服务单：{{homeData.todayServerCount}}</view>
 			<view class="content">
 				<view>已完成：{{homeData.completedCount}}</view>
 				<view>服务中：{{homeData.servingCount}}</view>

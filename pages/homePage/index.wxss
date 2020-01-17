@@ -52,7 +52,7 @@ page {
 .date-day.bgitem {
   background-color: #d8ecf9;
 }
- 
+
 .date-day.red{
   background: #e50012;
   border-radius: 8px;
